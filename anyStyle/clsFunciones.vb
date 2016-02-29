@@ -51,7 +51,9 @@ Public Class clsFunciones
         InjSQL = Replace(cadena, "'", "")
     End Function
 
-    Public Sub LlenarCombo(ByVal combo As DevExpress.XtraEditors.LookUpEdit, ByVal dt As DataTable, ByVal value As Integer, ByVal texto As Integer, Optional ByVal Primero As String = "", Optional ByVal Columnas() As Integer = Nothing, Optional ByVal AnchoColumnas() As Integer = Nothing)
+    Public Sub LlenarCombo(ByVal combo As DevExpress.XtraEditors.LookUpEdit, ByVal dt As DataTable,
+                           ByVal value As Integer, ByVal texto As Integer, Optional ByVal Primero As String = "",
+                           Optional ByVal Columnas() As Integer = Nothing, Optional ByVal AnchoColumnas() As Integer = Nothing)
         If Primero.Trim.Length > 0 Then
             Dim dr As DataRow
             Dim colValor As String = dt.Columns(value).ColumnName
@@ -81,7 +83,9 @@ Public Class clsFunciones
         End If
     End Sub
 
-    Public Sub LlenarComboGrid(ByVal combo As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit, ByVal dt As DataTable, ByVal value As Integer, ByVal texto As Integer, Optional ByVal Primero As String = "")
+    Public Sub LlenarComboGrid(ByVal combo As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit,
+                               ByVal dt As DataTable, ByVal value As Integer, ByVal texto As Integer,
+                               Optional ByVal Primero As String = "")
         If Primero.Trim.Length > 0 Then
             Dim dr As DataRow
             Dim colValor As String = dt.Columns(value).ColumnName

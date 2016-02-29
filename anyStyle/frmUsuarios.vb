@@ -3,6 +3,7 @@ Imports DevExpress.XtraGrid.Views.Base
 Imports DevExpress.XtraGrid.Views.Grid
 Imports DevExpress.XtraVerticalGrid.Events
 Imports DevExpress.XtraEditors.Controls
+Imports DevExpress.XtraEditors
 
 Public Class frmUsuarios
     Dim f As New clsFunciones
@@ -28,8 +29,6 @@ Public Class frmUsuarios
         sSQL = "select IDGrupo, CodigoGrupo + ' - ' + NombreGrupo as NombreGrupo from dbo.Grupos"
         Dim dtGrupo As New DataTable
         dtGrupo = f.EjecutarQuery(sSQL)
-
-        f.LlenarComboGrid(cboGrupoUsuarioCol, dtGrupo, 0, 1)
     End Sub
 
     Private Sub CargarGrid()
@@ -216,11 +215,14 @@ Public Class frmUsuarios
     End Sub
 
     Private Sub grdCompanias_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdCompanias.FocusedRowChanged
-        sSQL = "select * from Grupos where IDCompania = " & grdCompanias.GetFocusedRowCellValue("IDCompania")
+        sSQL = "select IDGrupo, CodigoGrupo + ' - ' + NombreGrupo as NombreGrupo" &
+                " from Grupos where IDCompania = " & grdCompanias.GetFocusedRowCellValue("IDCompania") &
+                " order by CodigoGrupo"
         Dim dt As New DataTable
         dt = f.EjecutarQuery(sSQL)
 
-
-        'sSQL = "select * from Grupos where IDCompania = " & grdCompanias.GetFocusedRowCellValue("IDCompania")
+        chklGruposCompanias.DataSource = dt
+        chklGruposCompanias.ValueMember = "IDGrupo"
+        chklGruposCompanias.DisplayMember = "NombreGrupo"
     End Sub
 End Class
