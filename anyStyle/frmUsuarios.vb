@@ -26,9 +26,13 @@ Public Class frmUsuarios
     End Sub
 
     Private Sub CargarCombos()
-        sSQL = "select IDGrupo, CodigoGrupo + ' - ' + NombreGrupo as NombreGrupo from dbo.Grupos"
-        Dim dtGrupo As New DataTable
-        dtGrupo = f.EjecutarQuery(sSQL)
+        Dim dt As New DataTable
+
+        sSQL = "select IDGrupo as IDGrupoUsuarios, CodigoGrupo + ' - ' + NombreGrupo as NombreGrupo" &
+        " from Grupos where IDCompania = " & frmMain.oDatosUsuario.Compania
+
+        dt = f.EjecutarQuery(sSQL)
+        f.LlenarComboGrid(repIDGrupoUsuarios, dt, 0, 1)
     End Sub
 
     Private Sub CargarGrid()
@@ -124,7 +128,9 @@ Public Class frmUsuarios
     End Sub
 
     Private Sub LlenarCompaniasGrupos()
-        sSQL = "select * from Companias"
+        sSQL = "select com.IDCompania, com.CodigoCompania, com.NombreCompania, uco.IDGrupoUsuarios" &
+                " from Companias com" &
+                " left outer join UsuariosCompanias uco on com.IDCompania = uco.IDCompania"
         Dim dtCompania As New DataTable
         dtCompania = f.EjecutarQuery(sSQL)
 
@@ -215,14 +221,62 @@ Public Class frmUsuarios
     End Sub
 
     Private Sub grdCompanias_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdCompanias.FocusedRowChanged
-        sSQL = "select IDGrupo, CodigoGrupo + ' - ' + NombreGrupo as NombreGrupo" &
-                " from Grupos where IDCompania = " & grdCompanias.GetFocusedRowCellValue("IDCompania") &
-                " order by CodigoGrupo"
-        Dim dt As New DataTable
-        dt = f.EjecutarQuery(sSQL)
+        'sSQL = "select IDGrupo, CodigoGrupo + ' - ' + NombreGrupo as NombreGrupo" &
+        '        " from Grupos where IDCompania = " & grdCompanias.GetFocusedRowCellValue("IDCompania") &
+        '        " order by CodigoGrupo"
+        'Dim dt As New DataTable
+        'dt = f.EjecutarQuery(sSQL)
 
-        chklGruposCompanias.DataSource = dt
-        chklGruposCompanias.ValueMember = "IDGrupo"
-        chklGruposCompanias.DisplayMember = "NombreGrupo"
+        'chklGruposCompanias.Items.Clear()
+
+        'For Each row In dt.Rows
+        '    Dim itm As New CheckedListBoxItem
+        '    itm.Value = row("IDGrupo")
+        '    itm.Description = row("NombreGrupo")
+        '    chklGruposCompanias.Items.Add(itm)
+        'Next
     End Sub
+
+    Private Sub grdCompanias_ShownEditor(sender As Object, e As EventArgs) Handles grdCompanias.ShownEditor
+        Try
+            Dim view As GridView
+            view = CType(sender, GridView)
+
+            If view.FocusedColumn.Name = "comIDGrupoUsuarios" AndAlso TypeOf view.ActiveEditor Is LookUpEdit Then
+                Dim edit As LookUpEdit
+                Dim dt As New DataTable
+                Dim row As DataRow
+
+                edit = CType(view.ActiveEditor, LookUpEdit)
+                row = view.GetDataRow(view.FocusedRowHandle)
+
+                sSQL = "select IDGrupo as IDGrupoUsuarios, CodigoGrupo + ' - ' + NombreGrupo as NombreGrupo" &
+                        " from Grupos where IDCompania = " & grdCompanias.GetFocusedRowCellValue("IDCompania")
+
+                dt = f.EjecutarQuery(sSQL)
+                f.LlenarCombo(edit, dt, 0, 1)
+            End If
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
+    End Sub
+
+    'Private Sub chklGruposCompanias_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chklGruposCompanias.ItemCheck
+    '    If e.State = CheckState.Checked Then
+    '        For Each item As CheckedListBoxItem In chklGruposCompanias.Items
+    '            If item.Value IsNot chklGruposCompanias.Items(e.Index).Value AndAlso item.CheckState = CheckState.Checked Then
+    '                item.CheckState = CheckState.Unchecked
+    '            End If
+    '        Next item
+    '    End If
+    'End Sub
+
+    'Private Sub chklGruposCompanias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles chklGruposCompanias.SelectedIndexChanged
+    '    Dim dt As DataTable = gcCompanias.DataSource
+
+    '    'dt.Rows(grdCompanias.FocusedRowHandle)("IDGrupo") = chklGruposCompanias.SelectedValue
+    '    'gcCompanias.DataSource = dt
+
+    '    grdCompanias.SetRowCellValue(grdCompanias.FocusedRowHandle, "IDGrupoUsuarios", chklGruposCompanias.SelectedValue)
+    'End Sub
 End Class

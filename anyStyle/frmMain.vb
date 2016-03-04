@@ -40,4 +40,9 @@ Public Class frmMain
         End If
     End Sub
 
+    Private Sub itmCerrarSesion_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles itmCerrarSesion.ItemClick
+        frmLogin.MdiParent = Me
+        frmLogin.Show()
+        oDatosUsuario.Eliminar()
+    End Sub
 End Class

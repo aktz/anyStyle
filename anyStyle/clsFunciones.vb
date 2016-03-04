@@ -145,9 +145,11 @@ Public Class clsFunciones
 End Class
 
 Public Class clsDatosUsuario
+
     Private _Compania As Integer
     Private _CodigoUsuario As String
     Private _NombreUsuario As String
+    Private _IDGrupo As Integer
     Private _CodigoGrupo As String
     Private _NombreGrupo As String
     Private _Equipo As String = My.Computer.Name
@@ -167,56 +169,65 @@ Public Class clsDatosUsuario
         End Set
     End Property
 
-    Public Property CodigoUsuario As Integer
+    Public Property CodigoUsuario As String
         Get
             Return _CodigoUsuario
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _CodigoUsuario = value
         End Set
     End Property
 
-    Public Property NombreUsuario As Integer
+    Public Property NombreUsuario As String
         Get
             Return _NombreUsuario
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _NombreUsuario = value
         End Set
     End Property
 
-    Public Property CodigoGrupo As Integer
+    Public Property IDGrupo As Integer
+        Get
+            Return _IDGrupo
+        End Get
+        Set(value As Integer)
+            _IDGrupo = value
+        End Set
+    End Property
+
+    Public Property CodigoGrupo As String
         Get
             Return _CodigoGrupo
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _CodigoGrupo = value
         End Set
     End Property
 
-    Public Property NombreGrupo As Integer
+    Public Property NombreGrupo As String
         Get
             Return _NombreGrupo
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _NombreGrupo = value
         End Set
     End Property
 
-    Public Property Equipo As Integer
+    Public Property Equipo As String
         Get
             Return _Equipo
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _Equipo = value
         End Set
     End Property
 
-    Public Property Tema As Integer
+    Public Property Tema As String
         Get
             Return _Tema
         End Get
-        Set(value As Integer)
+        Set(value As String)
             _Tema = value
         End Set
     End Property
@@ -266,14 +277,17 @@ Public Class clsDatosUsuario
         End Set
     End Property
 
-    Sub New(ByVal pCompania As Integer, ByVal pCodigoUsuario As String, ByVal pNombreUsuario As String, ByVal pCodigoGrupo As String,
-            ByVal pNombreGrupo As String, ByVal pTema As String, ByVal pPuedeModificar As Boolean, ByVal pPuedeConfigurarUsuarios As Boolean,
-            ByVal pPuedeGenerarReportes As Boolean, ByVal pPuedeManejarCaja As Boolean, ByVal pPuedeManejarProductos As Boolean)
+    Sub New(ByVal pCompania As Integer, ByVal pCodigoUsuario As String, ByVal pNombreUsuario As String, ByVal pIDGrupo As Integer,
+            ByVal pCodigoGrupo As String, ByVal pNombreGrupo As String, ByVal pEquipo As String, ByVal pTema As String,
+            ByVal pPuedeModificar As Boolean, ByVal pPuedeConfigurarUsuarios As Boolean, ByVal pPuedeGenerarReportes As Boolean,
+            ByVal pPuedeManejarCaja As Boolean, ByVal pPuedeManejarProductos As Boolean)
         Compania = pCompania
         CodigoUsuario = pCodigoUsuario
         NombreUsuario = pNombreUsuario
+        IDGrupo = pIDGrupo
         CodigoGrupo = pCodigoGrupo
         NombreGrupo = pNombreGrupo
+        Equipo = pEquipo
         Tema = pTema
         PuedeModificar = pPuedeModificar
         PuedeConfigurarUsuarios = pPuedeConfigurarUsuarios
@@ -282,6 +296,8 @@ Public Class clsDatosUsuario
         PuedeManejarProductos = pPuedeManejarProductos
     End Sub
 
-
+    Public Sub Eliminar()
+        Me.Finalize()
+    End Sub
 End Class
 
