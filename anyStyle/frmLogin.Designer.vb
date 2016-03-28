@@ -59,10 +59,15 @@ Partial Class frmLogin
         '
         'PictureEdit1
         '
-        Me.PictureEdit1.Location = New System.Drawing.Point(22, 27)
+        Me.PictureEdit1.EditValue = Global.anyStyle.My.Resources.Resources.Llave
+        Me.PictureEdit1.Location = New System.Drawing.Point(22, 19)
         Me.PictureEdit1.Name = "PictureEdit1"
+        Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
+        Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
+        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
         Me.PictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
-        Me.PictureEdit1.Size = New System.Drawing.Size(115, 104)
+        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
+        Me.PictureEdit1.Size = New System.Drawing.Size(68, 67)
         Me.PictureEdit1.TabIndex = 3
         '
         'gcLoginCompanias
@@ -124,7 +129,7 @@ Partial Class frmLogin
         Me.btnIngresar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnIngresar.Appearance.Options.UseBackColor = True
         Me.btnIngresar.Image = CType(resources.GetObject("btnIngresar.Image"), System.Drawing.Image)
-        Me.btnIngresar.Location = New System.Drawing.Point(143, 91)
+        Me.btnIngresar.Location = New System.Drawing.Point(96, 89)
         Me.btnIngresar.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnIngresar.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnIngresar.LookAndFeel.UseDefaultLookAndFeel = False
@@ -136,7 +141,7 @@ Partial Class frmLogin
         'txtClave
         '
         Me.txtClave.EditValue = ""
-        Me.txtClave.Location = New System.Drawing.Point(143, 59)
+        Me.txtClave.Location = New System.Drawing.Point(96, 57)
         Me.txtClave.Name = "txtClave"
         Me.txtClave.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClave.Properties.Appearance.Options.UseFont = True
@@ -147,7 +152,7 @@ Partial Class frmLogin
         'txtUsuario
         '
         Me.txtUsuario.EditValue = ""
-        Me.txtUsuario.Location = New System.Drawing.Point(143, 27)
+        Me.txtUsuario.Location = New System.Drawing.Point(96, 25)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsuario.Properties.Appearance.Options.UseFont = True
