@@ -45,4 +45,9 @@ Public Class frmMain
         frmLogin.Show()
         oDatosUsuario.Eliminar()
     End Sub
+
+    Private Sub itmProveedores_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles itmProveedores.ItemClick
+        frmProveedores.MdiParent = Me
+        frmProveedores.Show()
+    End Sub
 End Class
