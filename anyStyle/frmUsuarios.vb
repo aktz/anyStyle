@@ -33,7 +33,7 @@ Public Class frmUsuarios
         " from Grupos where IDCompania = " & frmMain.oDatosUsuario.Compania
 
         dt = f.EjecutarQuery(sSQL)
-        f.LlenarComboGrid(repIDGrupoUsuarios, dt, 0, 1)
+        f.LlenarComboGrid(cboGrupoUsuarioCol, dt, 0, 1)
     End Sub
 
     Private Sub CargarGrid()
@@ -57,6 +57,7 @@ Public Class frmUsuarios
         vgrdDetalles.Rows("rowIDUsuario").Properties.Value = dr("IDUsuario")
         vgrdDetalles.Rows("rowCodigoUsuario").Properties.Value = dr("CodigoUsuario")
         vgrdDetalles.Rows("rowNombreUsuario").Properties.Value = dr("NombreUsuario")
+        vgrdDetalles.Rows("rowIDGrupoUsuarios").Properties.Value = dr("IDGrupoUsuarios")
         vgrdDetalles.Rows("rowTelefonoUsuario").Properties.Value = dr("TelefonoUsuario")
         vgrdDetalles.Rows("rowEmailUsuario").Properties.Value = dr("EmailUsuario")
         vgrdDetalles.Rows("rowPwdUsuario").Properties.Value = f.Desencriptar(dr("PwdUsuario"))
@@ -70,7 +71,7 @@ Public Class frmUsuarios
         btnInsertar.Enabled = bEstado
 
         vgrdDetalles.OptionsBehavior.Editable = bEstado
-        grdUsuarios.Columns(7).Visible = bEstado
+        grdUsuarios.Columns(8).Visible = bEstado
         'chklGruposCompanias.Enabled = bEstado
     End Sub
 
@@ -156,6 +157,7 @@ Public Class frmUsuarios
             dt.Columns.Add("IDUsuario", Type.GetType("System.Int32"))
             dt.Columns.Add("CodigoUsuario", Type.GetType("System.Int32"))
             dt.Columns.Add("NombreUsuario", Type.GetType("System.String"))
+            dt.Columns.Add("IDGrupoUsuarios", Type.GetType("System.Int32"))
             dt.Columns.Add("TelefonoUsuario", Type.GetType("System.String"))
             dt.Columns.Add("EmailUsuario", Type.GetType("System.String"))
             dt.Columns.Add("PwdUsuario", Type.GetType(SqlDbType.Binary))
@@ -167,6 +169,7 @@ Public Class frmUsuarios
         dr("IDUsuario") = 0
         dr("CodigoUsuario") = ""
         dr("NombreUsuario") = ""
+        dr("IDGrupoUsuarios") = 0
         dr("TelefonoUsuario") = ""
         dr("EmailUsuario") = ""
         dr("PwdUsuario") = "LdG+QR6uHr8="
@@ -184,6 +187,8 @@ Public Class frmUsuarios
                 grdUsuarios.SetFocusedRowCellValue("CodigoUsuario", e.Row.Properties.Value.ToString.ToUpper)
             Case "rowNombreUsuario"
                 grdUsuarios.SetFocusedRowCellValue("NombreUsuario", e.Row.Properties.Value.ToString.ToUpper)
+            Case "rowIDGrupoUsuarios"
+                grdUsuarios.SetFocusedRowCellValue("IDGrupoUsuarios", e.Row.Properties.Value.ToString.ToUpper)
             Case "rowTelefonoUsuario"
                 grdUsuarios.SetFocusedRowCellValue("TelefonoUsuario", e.Row.Properties.Value.ToString.ToUpper)
             Case "rowEmailUsuario"
@@ -202,7 +207,7 @@ Public Class frmUsuarios
 
         For Each row As DataRow In gcUsuarios.DataSource.Rows
             If row("CodigoUsuario") = "" AndAlso row("NombreUsuario") = "" AndAlso row("TelefonoUsuario") AndAlso
-            row("EmailUsuario") = "" AndAlso row("PwdUsuario") = "" Then
+            row("IDGrupoUsuarios") = 0 AndAlso row("EmailUsuario") = "" AndAlso row("PwdUsuario") = "" Then
                 bValidacion = False
                 MessageBox.Show("Existen Campos por configurar")
                 Exit For
@@ -249,66 +254,6 @@ Public Class frmUsuarios
         Next
     End Sub
 
-    'Private Sub grdCompanias_ShownEditor(sender As Object, e As EventArgs) Handles grdCompanias.ShownEditor
-    '    Try
-    '        Dim view As GridView
-    '        view = CType(sender, GridView)
-
-    '        If view.FocusedColumn.Name = "comIDGrupoUsuarios" AndAlso TypeOf view.ActiveEditor Is LookUpEdit Then
-    '            Dim edit As LookUpEdit
-    '            Dim dt As New DataTable
-    '            Dim row As DataRow
-
-    '            edit = CType(view.ActiveEditor, LookUpEdit)
-    '            row = view.GetDataRow(view.FocusedRowHandle)
-
-    '            sSQL = "Select IDGrupo As IDGrupoUsuarios, CodigoGrupo + ' - ' + NombreGrupo as NombreGrupo" &
-    '                    " from Grupos where IDCompania = " & grdCompanias.GetFocusedRowCellValue("IDCompania")
-
-    '            dt = f.EjecutarQuery(sSQL)
-    '            f.LlenarCombo(edit, dt, 0, 1)
-    '        End If
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message)
-    '    End Try
-    'End Sub
-
-    'Private Sub repIDGrupoUsuarios_Closed(sender As Object, e As ClosedEventArgs) Handles repIDGrupoUsuarios.Closed
-    '    Try
-    '        Dim view As GridView
-    '        view = CType(sender.Parent.FocusedView, GridView)
-
-    '        If view.FocusedColumn.Name = "comIDGrupoUsuarios" AndAlso TypeOf view.ActiveEditor Is LookUpEdit Then
-    '            Dim edit As LookUpEdit
-    '            Dim row As DataRow
-
-    '            Dim dt As DataTable = gcCompanias.DataSource.copy
-
-    '            edit = CType(view.ActiveEditor, LookUpEdit)
-
-    '            row = view.GetDataRow(view.FocusedRowHandle)
-
-    '            'dt.Rows(view.FocusedRowHandle)("IDGrupoUsuarios") = edit.EditValue
-
-    '            'gcCompanias.DataSource = dt
-    '            'dt.AcceptChanges()
-
-    '            row("IDGrupoUsuarios") = edit.EditValue
-    '        End If
-
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message)
-    '    End Try
-    'End Sub
-
-    Private Sub chklGruposCompanias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles chklGruposCompanias.SelectedIndexChanged
-        'For i = 0 To chklGruposCompanias.Items.Count - 1
-        '    If chklGruposCompanias.Items(i) Is chklGruposCompanias.Items(chklGruposCompanias.SelectedIndex) Then
-        '        chklGruposCompanias.Items(i).CheckState = False
-        '    End If
-        'Next
-    End Sub
-
     Private Sub chklGruposCompanias_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chklGruposCompanias.ItemCheck
         If e.State = CheckState.Checked Then
             For Each item As CheckedListBoxItem In chklGruposCompanias.Items
@@ -318,23 +263,4 @@ Public Class frmUsuarios
             Next
         End If
     End Sub
-
-    'Private Sub chklGruposCompanias_ItemCheck(sender As Object, e As ItemCheckEventArgs) Handles chklGruposCompanias.ItemCheck
-    '    If e.State = CheckState.Checked Then
-    '        For Each item As CheckedListBoxItem In chklGruposCompanias.Items
-    '            If item.Value IsNot chklGruposCompanias.Items(e.Index).Value AndAlso item.CheckState = CheckState.Checked Then
-    '                item.CheckState = CheckState.Unchecked
-    '            End If
-    '        Next item
-    '    End If
-    'End Sub
-
-    'Private Sub chklGruposCompanias_SelectedIndexChanged(sender As Object, e As EventArgs) Handles chklGruposCompanias.SelectedIndexChanged
-    '    Dim dt As DataTable = gcCompanias.DataSource
-
-    '    'dt.Rows(grdCompanias.FocusedRowHandle)("IDGrupo") = chklGruposCompanias.SelectedValue
-    '    'gcCompanias.DataSource = dt
-
-    '    grdCompanias.SetRowCellValue(grdCompanias.FocusedRowHandle, "IDGrupoUsuarios", chklGruposCompanias.SelectedValue)
-    'End Sub
 End Class

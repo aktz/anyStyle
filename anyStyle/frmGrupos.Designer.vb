@@ -68,6 +68,7 @@ Partial Class frmGrupos
         Me.btnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnGuardar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnModificar = New DevExpress.XtraEditors.SimpleButton()
+        Me.grpIDCompania = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.pnlContenedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedor.SuspendLayout()
         CType(Me.gcGrupos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -129,7 +130,7 @@ Partial Class frmGrupos
         Me.grdGrupos.Appearance.FocusedCell.Options.UseBackColor = True
         Me.grdGrupos.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.grdGrupos.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.grdGrupos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.grpIDGrupo, Me.grpCodigoGrupo, Me.grpNombreGrupo, Me.grpIndActivo, Me.grpIndVisualizar, Me.grpIndModificar, Me.grpIndConfigurarUsuarios, Me.grpIndReportes, Me.grpManejaCaja, Me.grpIndManejaProductos, Me.grpEliminar})
+        Me.grdGrupos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.grpIDGrupo, Me.grpIDCompania, Me.grpCodigoGrupo, Me.grpNombreGrupo, Me.grpIndActivo, Me.grpIndVisualizar, Me.grpIndModificar, Me.grpIndConfigurarUsuarios, Me.grpIndReportes, Me.grpManejaCaja, Me.grpIndManejaProductos, Me.grpEliminar})
         Me.grdGrupos.GridControl = Me.gcGrupos
         Me.grdGrupos.Name = "grdGrupos"
         Me.grdGrupos.OptionsBehavior.Editable = False
@@ -244,6 +245,7 @@ Partial Class frmGrupos
         Me.vgrdDetalles.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.vgrdDetalles.Cursor = System.Windows.Forms.Cursors.SizeNS
         Me.vgrdDetalles.Location = New System.Drawing.Point(315, 5)
         Me.vgrdDetalles.Name = "vgrdDetalles"
         Me.vgrdDetalles.OptionsBehavior.Editable = False
@@ -522,6 +524,12 @@ Partial Class frmGrupos
         Me.btnModificar.TabIndex = 0
         Me.btnModificar.Text = "Modificar"
         '
+        'grpIDCompania
+        '
+        Me.grpIDCompania.Caption = "Compania"
+        Me.grpIDCompania.FieldName = "IDCompania"
+        Me.grpIDCompania.Name = "grpIDCompania"
+        '
         'frmGrupos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -603,4 +611,5 @@ Partial Class frmGrupos
     Friend WithEvents repReportes As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repManejaCaja As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repManejaProductos As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents grpIDCompania As DevExpress.XtraGrid.Columns.GridColumn
 End Class

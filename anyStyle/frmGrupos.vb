@@ -30,7 +30,7 @@ Public Class frmGrupos
     Private Sub CargarGrid()
         gcGrupos.DataSource = Nothing
 
-        sSQL = "select * from dbo.Grupos"
+        sSQL = "select * from dbo.Grupos where IDCompania = " & frmMain.oDatosUsuario.Compania
         Dim dtUsuario As New DataTable
         dtUsuario = f.EjecutarQuery(sSQL)
 
@@ -63,7 +63,7 @@ Public Class frmGrupos
         btnInsertar.Enabled = bEstado
 
         vgrdDetalles.OptionsBehavior.Editable = bEstado
-        grdGrupos.Columns(10).Visible = bEstado
+        grdGrupos.Columns(11).Visible = bEstado
     End Sub
 
     Private Sub grdUsuarios_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdGrupos.FocusedRowChanged
@@ -77,7 +77,7 @@ Public Class frmGrupos
         If e.Column.Name = "grpEliminar" Then
 
             If MessageBox.Show("Está seguro de eliminar este grupo?", "Eliminar Grupo", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                sSQL = "select count(*) from Usuarios where IDGrupoUsuarios = " & grdGrupos.GetFocusedRowCellValue("IDGrupo")
+                sSQL = "Select count(*) from Usuarios where IDGrupoUsuarios = " & grdGrupos.GetFocusedRowCellValue("IDGrupo")
                 Dim dt As New DataTable
                 dt = f.EjecutarQuery(sSQL)
 
@@ -127,6 +127,7 @@ Public Class frmGrupos
         Else
             dt = New DataTable
             dt.Columns.Add("IDGrupo", Type.GetType("System.Int32"))
+            dt.Columns.Add("IDCompania", Type.GetType("System.Int32"))
             dt.Columns.Add("CodigoGrupo", Type.GetType("System.String"))
             dt.Columns.Add("NombreGrupo", Type.GetType("System.String"))
             dt.Columns.Add("IndActivo", Type.GetType("System.Boolean"))
@@ -140,6 +141,7 @@ Public Class frmGrupos
         dr = dt.NewRow
 
         dr("IDGrupo") = 0
+        dr("IDCompania") = frmMain.oDatosUsuario.Compania
         dr("CodigoGrupo") = ""
         dr("NombreGrupo") = ""
         dr("IndActivo") = True

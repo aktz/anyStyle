@@ -23,7 +23,7 @@ Partial Class frmUsuarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUsuarios))
-        Dim SerializableAppearanceObject6 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.pnlContenedor = New DevExpress.XtraEditors.PanelControl()
         Me.grpCompaniaGrupo = New DevExpress.XtraEditors.GroupControl()
         Me.chklGruposCompanias = New DevExpress.XtraEditors.CheckedListBoxControl()
@@ -60,6 +60,7 @@ Partial Class frmUsuarios
         Me.rowIDUsuario = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowCodigoUsuario = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowNombreUsuario = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
+        Me.rowIDGrupoUsuarios = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowTelefonoUsuario = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowEmailUsuario = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowPwdUsuario = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
@@ -70,6 +71,7 @@ Partial Class frmUsuarios
         Me.btnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnGuardar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnModificar = New DevExpress.XtraEditors.SimpleButton()
+        Me.usuIDGrupoUsuarios = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.pnlContenedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedor.SuspendLayout()
         CType(Me.grpCompaniaGrupo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -115,7 +117,7 @@ Partial Class frmUsuarios
         Me.grpCompaniaGrupo.Controls.Add(Me.chklGruposCompanias)
         Me.grpCompaniaGrupo.Controls.Add(Me.btnAceptarCompaniaGrupo)
         Me.grpCompaniaGrupo.Controls.Add(Me.gcCompanias)
-        Me.grpCompaniaGrupo.Location = New System.Drawing.Point(254, 135)
+        Me.grpCompaniaGrupo.Location = New System.Drawing.Point(652, 425)
         Me.grpCompaniaGrupo.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.grpCompaniaGrupo.LookAndFeel.UseDefaultLookAndFeel = False
         Me.grpCompaniaGrupo.Name = "grpCompaniaGrupo"
@@ -235,7 +237,7 @@ Partial Class frmUsuarios
         Me.grdUsuarios.Appearance.FocusedCell.Options.UseBackColor = True
         Me.grdUsuarios.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.grdUsuarios.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.grdUsuarios.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.usuIDUsuario, Me.usuCodigoUsuario, Me.usuNombreUsuario, Me.usuTelefonoUsuario, Me.usuEmailUsuario, Me.usuPwdUsuario, Me.usuIndActivo, Me.usuEliminar})
+        Me.grdUsuarios.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.usuIDUsuario, Me.usuCodigoUsuario, Me.usuNombreUsuario, Me.usuIDGrupoUsuarios, Me.usuTelefonoUsuario, Me.usuEmailUsuario, Me.usuPwdUsuario, Me.usuIndActivo, Me.usuEliminar})
         Me.grdUsuarios.GridControl = Me.gcUsuarios
         Me.grdUsuarios.Name = "grdUsuarios"
         Me.grdUsuarios.OptionsBehavior.Editable = False
@@ -299,9 +301,9 @@ Partial Class frmUsuarios
         'repEliminar
         '
         Me.repEliminar.AutoHeight = False
-        SerializableAppearanceObject6.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        SerializableAppearanceObject6.Options.UseBackColor = True
-        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject6, "", Nothing, Nothing, True)})
+        SerializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        SerializableAppearanceObject1.Options.UseBackColor = True
+        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
         Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.repEliminar.Name = "repEliminar"
         Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
@@ -332,7 +334,7 @@ Partial Class frmUsuarios
         Me.vgrdDetalles.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.vgrdDetalles.Cursor = System.Windows.Forms.Cursors.SizeNS
+        Me.vgrdDetalles.Cursor = System.Windows.Forms.Cursors.SizeWE
         Me.vgrdDetalles.Location = New System.Drawing.Point(315, 5)
         Me.vgrdDetalles.Name = "vgrdDetalles"
         Me.vgrdDetalles.OptionsBehavior.Editable = False
@@ -340,7 +342,7 @@ Partial Class frmUsuarios
         Me.vgrdDetalles.RecordWidth = 354
         Me.vgrdDetalles.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.chkActivoCol, Me.cboGrupoUsuarioCol, Me.repCodigoUsuario, Me.repNombreUsuario, Me.repTelefonoUsuario, Me.repEmailUsuario, Me.repPwdUsuario})
         Me.vgrdDetalles.RowHeaderWidth = 105
-        Me.vgrdDetalles.Rows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowIDUsuario, Me.rowCodigoUsuario, Me.rowNombreUsuario, Me.rowTelefonoUsuario, Me.rowEmailUsuario, Me.rowPwdUsuario, Me.rowIndActivo})
+        Me.vgrdDetalles.Rows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowIDUsuario, Me.rowCodigoUsuario, Me.rowNombreUsuario, Me.rowIDGrupoUsuarios, Me.rowTelefonoUsuario, Me.rowEmailUsuario, Me.rowPwdUsuario, Me.rowIndActivo})
         Me.vgrdDetalles.Size = New System.Drawing.Size(465, 478)
         Me.vgrdDetalles.TabIndex = 1
         '
@@ -440,6 +442,13 @@ Partial Class frmUsuarios
         Me.rowNombreUsuario.Properties.FieldName = "NombreUsuario"
         Me.rowNombreUsuario.Properties.RowEdit = Me.repNombreUsuario
         '
+        'rowIDGrupoUsuarios
+        '
+        Me.rowIDGrupoUsuarios.Name = "rowIDGrupoUsuarios"
+        Me.rowIDGrupoUsuarios.Properties.Caption = "GRUPO"
+        Me.rowIDGrupoUsuarios.Properties.FieldName = "IDGrupoUsuarios"
+        Me.rowIDGrupoUsuarios.Properties.RowEdit = Me.cboGrupoUsuarioCol
+        '
         'rowTelefonoUsuario
         '
         Me.rowTelefonoUsuario.Appearance.Options.UseTextOptions = True
@@ -520,6 +529,7 @@ Partial Class frmUsuarios
         Me.btnCompaniaGrupo.Size = New System.Drawing.Size(69, 61)
         Me.btnCompaniaGrupo.TabIndex = 0
         Me.btnCompaniaGrupo.Text = "Grupos"
+        Me.btnCompaniaGrupo.Visible = False
         '
         'btnCancelar
         '
@@ -564,6 +574,12 @@ Partial Class frmUsuarios
         Me.btnModificar.Size = New System.Drawing.Size(69, 61)
         Me.btnModificar.TabIndex = 0
         Me.btnModificar.Text = "Modificar"
+        '
+        'usuIDGrupoUsuarios
+        '
+        Me.usuIDGrupoUsuarios.Caption = "Grupo"
+        Me.usuIDGrupoUsuarios.FieldName = "IDGrupoUsuarios"
+        Me.usuIDGrupoUsuarios.Name = "usuIDGrupoUsuarios"
         '
         'frmUsuarios
         '
@@ -650,4 +666,6 @@ Partial Class frmUsuarios
     Friend WithEvents repIDGrupoUsuarios As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
     Friend WithEvents comIDGrupoUsuarios As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents chklGruposCompanias As DevExpress.XtraEditors.CheckedListBoxControl
+    Friend WithEvents rowIDGrupoUsuarios As DevExpress.XtraVerticalGrid.Rows.EditorRow
+    Friend WithEvents usuIDGrupoUsuarios As DevExpress.XtraGrid.Columns.GridColumn
 End Class
