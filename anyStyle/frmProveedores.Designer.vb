@@ -22,12 +22,13 @@ Partial Class frmProveedores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProveedores))
         Me.pnlContenedor = New DevExpress.XtraEditors.PanelControl()
         Me.gcProveedores = New DevExpress.XtraGrid.GridControl()
         Me.grdProveedores = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.proIDProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.proIDCompania = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proCodigoProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proNombreProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proTelefonoProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -59,12 +60,11 @@ Partial Class frmProveedores
         Me.rowDireccionProveedor = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowIndActivo = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.panOperaciones = New DevExpress.XtraEditors.PanelControl()
+        Me.btnProveedorProductos = New DevExpress.XtraEditors.SimpleButton()
         Me.btnInsertar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnGuardar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnModificar = New DevExpress.XtraEditors.SimpleButton()
-        Me.proIDCompania = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.btnProveedorProductos = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.pnlContenedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedor.SuspendLayout()
         CType(Me.gcProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -140,6 +140,14 @@ Partial Class frmProveedores
         Me.proIDProveedor.Caption = "IDProveedor"
         Me.proIDProveedor.FieldName = "IDProveedor"
         Me.proIDProveedor.Name = "proIDProveedor"
+        Me.proIDProveedor.Visible = True
+        Me.proIDProveedor.VisibleIndex = 0
+        '
+        'proIDCompania
+        '
+        Me.proIDCompania.Caption = "IDCompania"
+        Me.proIDCompania.FieldName = "IDCompania"
+        Me.proIDCompania.Name = "proIDCompania"
         '
         'proCodigoProveedor
         '
@@ -147,7 +155,7 @@ Partial Class frmProveedores
         Me.proCodigoProveedor.FieldName = "CodigoProveedor"
         Me.proCodigoProveedor.Name = "proCodigoProveedor"
         Me.proCodigoProveedor.Visible = True
-        Me.proCodigoProveedor.VisibleIndex = 0
+        Me.proCodigoProveedor.VisibleIndex = 1
         Me.proCodigoProveedor.Width = 84
         '
         'proNombreProveedor
@@ -156,7 +164,7 @@ Partial Class frmProveedores
         Me.proNombreProveedor.FieldName = "NombreProveedor"
         Me.proNombreProveedor.Name = "proNombreProveedor"
         Me.proNombreProveedor.Visible = True
-        Me.proNombreProveedor.VisibleIndex = 1
+        Me.proNombreProveedor.VisibleIndex = 2
         Me.proNombreProveedor.Width = 218
         '
         'proTelefonoProveedor
@@ -179,6 +187,7 @@ Partial Class frmProveedores
         '
         'proEliminar
         '
+        Me.proEliminar.ColumnEdit = Me.repEliminar
         Me.proEliminar.Name = "proEliminar"
         '
         'GrupoUsuarioCol
@@ -190,9 +199,9 @@ Partial Class frmProveedores
         'repEliminar
         '
         Me.repEliminar.AutoHeight = False
-        SerializableAppearanceObject2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        SerializableAppearanceObject2.Options.UseBackColor = True
-        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
+        SerializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        SerializableAppearanceObject1.Options.UseBackColor = True
+        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
         Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.repEliminar.Name = "repEliminar"
         Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
@@ -423,6 +432,21 @@ Partial Class frmProveedores
         Me.panOperaciones.Size = New System.Drawing.Size(79, 495)
         Me.panOperaciones.TabIndex = 1
         '
+        'btnProveedorProductos
+        '
+        Me.btnProveedorProductos.AllowFocus = False
+        Me.btnProveedorProductos.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnProveedorProductos.Appearance.Options.UseBackColor = True
+        Me.btnProveedorProductos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.btnProveedorProductos.Image = CType(resources.GetObject("btnProveedorProductos.Image"), System.Drawing.Image)
+        Me.btnProveedorProductos.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.btnProveedorProductos.Location = New System.Drawing.Point(5, 282)
+        Me.btnProveedorProductos.Name = "btnProveedorProductos"
+        Me.btnProveedorProductos.Size = New System.Drawing.Size(69, 61)
+        Me.btnProveedorProductos.TabIndex = 1
+        Me.btnProveedorProductos.Text = "Productos"
+        Me.btnProveedorProductos.Visible = False
+        '
         'btnInsertar
         '
         Me.btnInsertar.AllowFocus = False
@@ -482,27 +506,6 @@ Partial Class frmProveedores
         Me.btnModificar.Size = New System.Drawing.Size(69, 61)
         Me.btnModificar.TabIndex = 0
         Me.btnModificar.Text = "Modificar"
-        '
-        'proIDCompania
-        '
-        Me.proIDCompania.Caption = "IDCompania"
-        Me.proIDCompania.FieldName = "IDCompania"
-        Me.proIDCompania.Name = "proIDCompania"
-        '
-        'btnProveedorProductos
-        '
-        Me.btnProveedorProductos.AllowFocus = False
-        Me.btnProveedorProductos.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnProveedorProductos.Appearance.Options.UseBackColor = True
-        Me.btnProveedorProductos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnProveedorProductos.Image = CType(resources.GetObject("btnProveedorProductos.Image"), System.Drawing.Image)
-        Me.btnProveedorProductos.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnProveedorProductos.Location = New System.Drawing.Point(5, 282)
-        Me.btnProveedorProductos.Name = "btnProveedorProductos"
-        Me.btnProveedorProductos.Size = New System.Drawing.Size(69, 61)
-        Me.btnProveedorProductos.TabIndex = 1
-        Me.btnProveedorProductos.Text = "Productos"
-        Me.btnProveedorProductos.Visible = False
         '
         'frmProveedores
         '

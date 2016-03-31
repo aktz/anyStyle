@@ -81,4 +81,30 @@ Public Class clsProcedimientos
 
         Return dt
     End Function
+
+    Public Function pProveedores(ByVal dtProveedores As DataTable) As DataTable
+        Dim cmd As New SqlCommand
+        Dim par As New SqlParameter
+        Dim dr As SqlDataReader
+        Dim dt As New DataTable
+
+        cmd.Connection = f.conn
+        cmd.CommandType = CommandType.StoredProcedure
+        cmd.CommandText = "SP_Proveedores"
+
+        par = Nothing
+        par = New SqlParameter
+        par.ParameterName = "@Proveedores"
+        par.Value = dtProveedores
+        cmd.Parameters.Add(par)
+
+        If cmd.Connection.State <> ConnectionState.Open Then
+            cmd.Connection.Open()
+        End If
+
+        dr = cmd.ExecuteReader
+        dt.Load(dr)
+
+        Return dt
+    End Function
 End Class

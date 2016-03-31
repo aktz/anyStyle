@@ -46,14 +46,20 @@ Public Class frmProveedores
     End Sub
 
     Private Sub CargarDetalles()
-        Dim dr As DataRowView = grdProveedores.GetFocusedRow
+        For Each row In vgrdDetalles.Rows
+            row.Properties.Value = Nothing
+        Next
 
-        vgrdDetalles.Rows("rowIDProveedor").Properties.Value = dr("IDProveedor")
-        vgrdDetalles.Rows("rowCodigoProveedor").Properties.Value = dr("CodigoProveedor")
-        vgrdDetalles.Rows("rowNombreProveedor").Properties.Value = dr("NombreProveedor")
-        vgrdDetalles.Rows("rowTelefonoProveedor").Properties.Value = dr("TelefonoProveedor")
-        vgrdDetalles.Rows("rowDireccionProveedor").Properties.Value = dr("DireccionProveedor")
-        vgrdDetalles.Rows("rowIndActivo").Properties.Value = dr("IndActivo")
+        If Not IsNothing(grdProveedores.GetFocusedRow) Then
+            Dim dr As DataRowView = grdProveedores.GetFocusedRow
+
+            vgrdDetalles.Rows("rowIDProveedor").Properties.Value = dr("IDProveedor")
+            vgrdDetalles.Rows("rowCodigoProveedor").Properties.Value = dr("CodigoProveedor")
+            vgrdDetalles.Rows("rowNombreProveedor").Properties.Value = dr("NombreProveedor")
+            vgrdDetalles.Rows("rowTelefonoProveedor").Properties.Value = dr("TelefonoProveedor")
+            vgrdDetalles.Rows("rowDireccionProveedor").Properties.Value = dr("DireccionProveedor")
+            vgrdDetalles.Rows("rowIndActivo").Properties.Value = dr("IndActivo")
+        End If
     End Sub
 
     Private Sub HabilitarControles(ByVal bEstado As Boolean)
@@ -63,7 +69,7 @@ Public Class frmProveedores
         btnInsertar.Enabled = bEstado
 
         vgrdDetalles.OptionsBehavior.Editable = bEstado
-        grdProveedores.Columns(6).Visible = bEstado
+        grdProveedores.Columns(7).Visible = bEstado
     End Sub
 
     Private Sub grdProveedores_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdProveedores.FocusedRowChanged
@@ -73,13 +79,13 @@ Public Class frmProveedores
         End If
     End Sub
 
-    Private Sub grdUsuarios_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles grdProveedores.RowCellClick
+    Private Sub grdProveedores_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles grdProveedores.RowCellClick
         If e.Column.Name = "proEliminar" Then
 
             If MessageBox.Show("Está seguro de eliminar este proveedor?", "Eliminar Proveedor",
                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 sSQL = "Select count(*) from ProveedoresProductos where IDProveedor = " &
-                        grdProveedores.GetFocusedRowCellValue("IDProvedor") &
+                        grdProveedores.GetFocusedRowCellValue("IDProveedor") &
                         " and IndActivo = 1"
                 Dim dt As New DataTable
                 dt = f.EjecutarQuery(sSQL)
@@ -155,20 +161,24 @@ Public Class frmProveedores
     End Sub
 
     Private Sub vgrdDetalles_CellValueChanged(sender As Object, e As DevExpress.XtraVerticalGrid.Events.CellValueChangedEventArgs) Handles vgrdDetalles.CellValueChanged
-        Select Case e.Row.Name
-            Case "rowCodigoProveedor"
-                grdProveedores.SetFocusedRowCellValue("CodigoProveedor", e.Row.Properties.Value)
-            Case "rowNombreProveedor"
-                grdProveedores.SetFocusedRowCellValue("NombreProveedor", e.Row.Properties.Value)
-            Case "rowTelefonoProveedor"
-                grdProveedores.SetFocusedRowCellValue("TelefonoProveedor", e.Row.Properties.Value)
-            Case "rowDireccionProveedor"
-                grdProveedores.SetFocusedRowCellValue("DireccionProveedor", e.Row.Properties.Value)
-            Case "rowIndActivo"
-                grdProveedores.SetFocusedRowCellValue("IndActivo", e.Row.Properties.Value)
-        End Select
+        Try
+            Select Case e.Row.Name
+                Case "rowCodigoProveedor"
+                    grdProveedores.SetFocusedRowCellValue("CodigoProveedor", e.Row.Properties.Value)
+                Case "rowNombreProveedor"
+                    grdProveedores.SetFocusedRowCellValue("NombreProveedor", e.Row.Properties.Value)
+                Case "rowTelefonoProveedor"
+                    grdProveedores.SetFocusedRowCellValue("TelefonoProveedor", e.Row.Properties.Value)
+                Case "rowDireccionProveedor"
+                    grdProveedores.SetFocusedRowCellValue("DireccionProveedor", e.Row.Properties.Value)
+                Case "rowIndActivo"
+                    grdProveedores.SetFocusedRowCellValue("IndActivo", e.Row.Properties.Value)
+            End Select
 
-        gcProveedores.DataSource.AcceptChanges()
+            gcProveedores.DataSource.AcceptChanges()
+        Catch ex As Exception
+            MessageBox.Show(ex.Message)
+        End Try
     End Sub
 
     Private Function Validar() As Boolean
@@ -191,7 +201,7 @@ Public Class frmProveedores
 
         gcProveedores.Focus()
 
-        dtPro = clsPro.pGrupos(gcProveedores.DataSource)
+        dtPro = clsPro.pProveedores(gcProveedores.DataSource)
         CargarGrid()
     End Sub
 
