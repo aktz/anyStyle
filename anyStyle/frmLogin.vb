@@ -22,11 +22,21 @@
                     where IDUsuario = " & dt.Rows(0)("IDUsuario")
 
             dt = f.EjecutarQuery(sSQL)
-            gcLoginCompanias.DataSource = IIf(dt.Rows.Count > 0, dt, Nothing)
 
-            txtUsuario.BackColor = Color.White
-            txtClave.BackColor = Color.White
+            If dt.Rows.Count > 0 Then
+                gcLoginCompanias.DataSource = IIf(dt.Rows.Count > 0, dt, Nothing)
 
+                txtUsuario.BackColor = Color.White
+                txtClave.BackColor = Color.White
+            Else
+                Dim dtTmp As New DataTable
+                dt.Columns.Add("IDCompania", Type.GetType("System.Int32"))
+                dt.Columns.Add("CodigoCompania", Type.GetType("System.String"))
+                dt.Columns.Add("NombreCompania", Type.GetType("System.String"))
+                dt.Rows.Add(0, "0", "CREAR COMPAÑÍA")
+
+                gcLoginCompanias.DataSource = dt
+            End If
         Else
             txtUsuario.BackColor = Color.LightPink
             txtClave.BackColor = Color.LightPink
@@ -66,12 +76,9 @@
 
             Me.Close()
             Me.Dispose()
-
-
-
+            frmMain.ribMenu.Enabled = True
         Else
             MessageBox.Show("No existen Registros")
-
         End If
 
 

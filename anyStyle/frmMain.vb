@@ -6,6 +6,7 @@ Public Class frmMain
     Public oDatosUsuario As clsDatosUsuario
 
     Private Sub frmMain_Load(sender As Object, e As EventArgs) Handles Me.Load
+        ribMenu.Enabled = False
         frmLogin.MdiParent = Me
         frmLogin.Show()
     End Sub
@@ -44,6 +45,7 @@ Public Class frmMain
         frmLogin.MdiParent = Me
         frmLogin.Show()
         oDatosUsuario.Eliminar()
+        ribMenu.Enabled = False
     End Sub
 
     Private Sub itmProveedores_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles itmProveedores.ItemClick
