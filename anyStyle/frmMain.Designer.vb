@@ -39,8 +39,8 @@ Partial Class frmMain
         Me.itmCerrarSesion = New DevExpress.XtraBars.BarButtonItem()
         Me.itmInfo = New DevExpress.XtraBars.BarButtonItem()
         Me.rtabConfiguracion = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.RibbonPageGroup1 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
-        Me.RibbonPageGroup2 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.rpgCerrarSesion = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.rpgNoticias = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.RibbonPageGroup3 = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rpgCompanias = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rpgGrupos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
@@ -48,11 +48,11 @@ Partial Class frmMain
         Me.rpgProveedores = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rpgProductos = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
         Me.rpgClientes = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.rtabProcesos = New DevExpress.XtraBars.Ribbon.RibbonPage()
+        Me.rtabInformes = New DevExpress.XtraBars.Ribbon.RibbonPage()
         Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit()
         Me.DocumentManager1 = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView1 = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
-        Me.rtabProcesos = New DevExpress.XtraBars.Ribbon.RibbonPage()
-        Me.rtabInformes = New DevExpress.XtraBars.Ribbon.RibbonPage()
         CType(Me.ribMenu, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -208,19 +208,19 @@ Partial Class frmMain
         '
         'rtabConfiguracion
         '
-        Me.rtabConfiguracion.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.RibbonPageGroup1, Me.RibbonPageGroup2, Me.RibbonPageGroup3, Me.rpgCompanias, Me.rpgGrupos, Me.rpgUsuarios, Me.rpgProveedores, Me.rpgProductos, Me.rpgClientes})
+        Me.rtabConfiguracion.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.rpgCerrarSesion, Me.rpgNoticias, Me.RibbonPageGroup3, Me.rpgCompanias, Me.rpgGrupos, Me.rpgUsuarios, Me.rpgProveedores, Me.rpgProductos, Me.rpgClientes})
         Me.rtabConfiguracion.Name = "rtabConfiguracion"
         Me.rtabConfiguracion.Text = "ADMINISTRACIÓN"
         '
-        'RibbonPageGroup1
+        'rpgCerrarSesion
         '
-        Me.RibbonPageGroup1.ItemLinks.Add(Me.itmCerrarSesion)
-        Me.RibbonPageGroup1.Name = "RibbonPageGroup1"
+        Me.rpgCerrarSesion.ItemLinks.Add(Me.itmCerrarSesion)
+        Me.rpgCerrarSesion.Name = "rpgCerrarSesion"
         '
-        'RibbonPageGroup2
+        'rpgNoticias
         '
-        Me.RibbonPageGroup2.ItemLinks.Add(Me.itmInfo)
-        Me.RibbonPageGroup2.Name = "RibbonPageGroup2"
+        Me.rpgNoticias.ItemLinks.Add(Me.itmInfo)
+        Me.rpgNoticias.Name = "rpgNoticias"
         '
         'RibbonPageGroup3
         '
@@ -263,6 +263,16 @@ Partial Class frmMain
         Me.rpgClientes.Name = "rpgClientes"
         Me.rpgClientes.ShowCaptionButton = False
         '
+        'rtabProcesos
+        '
+        Me.rtabProcesos.Name = "rtabProcesos"
+        Me.rtabProcesos.Text = "PROCESOS"
+        '
+        'rtabInformes
+        '
+        Me.rtabInformes.Name = "rtabInformes"
+        Me.rtabInformes.Text = "INFORMES"
+        '
         'RepositoryItemPictureEdit1
         '
         Me.RepositoryItemPictureEdit1.Name = "RepositoryItemPictureEdit1"
@@ -274,16 +284,6 @@ Partial Class frmMain
         Me.DocumentManager1.MenuManager = Me.ribMenu
         Me.DocumentManager1.View = Me.TabbedView1
         Me.DocumentManager1.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView1})
-        '
-        'rtabProcesos
-        '
-        Me.rtabProcesos.Name = "rtabProcesos"
-        Me.rtabProcesos.Text = "PROCESOS"
-        '
-        'rtabInformes
-        '
-        Me.rtabInformes.Name = "rtabInformes"
-        Me.rtabInformes.Text = "INFORMES"
         '
         'frmMain
         '
@@ -329,9 +329,9 @@ Partial Class frmMain
     Friend WithEvents itmCompanias As DevExpress.XtraBars.BarButtonItem
     Friend WithEvents rpgCompanias As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents itmCerrarSesion As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents RibbonPageGroup1 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents rpgCerrarSesion As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents itmInfo As DevExpress.XtraBars.BarButtonItem
-    Friend WithEvents RibbonPageGroup2 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
+    Friend WithEvents rpgNoticias As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents rtabProcesos As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents rtabInformes As DevExpress.XtraBars.Ribbon.RibbonPage

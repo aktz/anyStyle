@@ -44,8 +44,11 @@ Public Class frmMain
     Private Sub itmCerrarSesion_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles itmCerrarSesion.ItemClick
         frmLogin.MdiParent = Me
         frmLogin.Show()
-        oDatosUsuario.Eliminar()
         ribMenu.Enabled = False
+
+        If Not IsNothing(oDatosUsuario) Then
+            oDatosUsuario.Eliminar()
+        End If
     End Sub
 
     Private Sub itmProveedores_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles itmProveedores.ItemClick

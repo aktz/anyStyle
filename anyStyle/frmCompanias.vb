@@ -9,47 +9,81 @@ Public Class frmCompanias
     Dim iOperacion As Integer = 0
     Dim iRegistroActivo As Integer = 0
 
+    ''' <summary>
+    ''' Cargue del Formulario Grupos
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub frmGrupos_Load(sender As Object, e As EventArgs) Handles Me.Load
         CargarCombos()
         CargarGrid()
         RecalcularAnchoVGrid()
     End Sub
 
+    ''' <summary>
+    ''' Recalcular ancho del vertical grid
+    ''' </summary>
     Private Sub RecalcularAnchoVGrid()
         vgrdDetalles.RecordWidth = vgrdDetalles.Width - vgrdDetalles.RowHeaderWidth - 5
     End Sub
 
+    ''' <summary>
+    ''' Evento de cambio de tamaño del vertical grid
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub vgrdDetalles_SizeChanged(sender As Object, e As EventArgs) Handles vgrdDetalles.SizeChanged
         RecalcularAnchoVGrid()
     End Sub
 
+    ''' <summary>
+    ''' Evento de cargue de combos
+    ''' </summary>
     Private Sub CargarCombos()
 
     End Sub
 
+    ''' <summary>
+    ''' Evento de Cargue de grid
+    ''' </summary>
     Private Sub CargarGrid()
         gcCompanias.DataSource = Nothing
 
         sSQL = "select * from dbo.Companias"
-        Dim dtUsuario As New DataTable
-        dtUsuario = f.EjecutarQuery(sSQL)
+        Dim dtCompanias As New DataTable
+        dtCompanias = f.EjecutarQuery(sSQL)
 
-        RemoveHandler grdCompanias.FocusedRowChanged, AddressOf grdUsuarios_FocusedRowChanged
-        gcCompanias.DataSource = dtUsuario
-        AddHandler grdCompanias.FocusedRowChanged, AddressOf grdUsuarios_FocusedRowChanged
+        If dtCompanias.Rows.Count Then
+            RemoveHandler grdCompanias.FocusedRowChanged, AddressOf grdCompanias_FocusedRowChanged
+            gcCompanias.DataSource = dtCompanias
+            AddHandler grdCompanias.FocusedRowChanged, AddressOf grdCompanias_FocusedRowChanged
 
-        grdCompanias.FocusedRowHandle = iRegistroActivo
-        CargarDetalles()
+            grdCompanias.FocusedRowHandle = iRegistroActivo
+            CargarDetalles()
+        End If
     End Sub
 
+    ''' <summary>
+    ''' Cargue de datos desde el grid hacia los controles vinculados
+    ''' </summary>
     Private Sub CargarDetalles()
-        Dim dr As DataRowView = grdCompanias.GetFocusedRow
+        For Each row In vgrdDetalles.Rows
+            row.Properties.Value = Nothing
+        Next
 
-        vgrdDetalles.Rows("rowIDCompania").Properties.Value = dr("IDCompania")
-        vgrdDetalles.Rows("rowCodigoCompania").Properties.Value = dr("CodigoCompania")
-        vgrdDetalles.Rows("rowNombreCompania").Properties.Value = dr("NombreCompania")
+        If Not IsNothing(grdCompanias.GetFocusedRow) Then
+            Dim dr As DataRowView = grdCompanias.GetFocusedRow
+
+            vgrdDetalles.Rows("rowIDCompania").Properties.Value = dr("IDCompania")
+            vgrdDetalles.Rows("rowCodigoCompania").Properties.Value = dr("CodigoCompania")
+            vgrdDetalles.Rows("rowNombreCompania").Properties.Value = dr("NombreCompania")
+        End If
     End Sub
 
+    ''' <summary>
+    ''' Habilitación|deshabilitación de controles
+    ''' </summary>
+    ''' <param name="bEstado"></param>
     Private Sub HabilitarControles(ByVal bEstado As Boolean)
         btnModificar.Enabled = Not bEstado
         btnGuardar.Enabled = bEstado
@@ -60,13 +94,23 @@ Public Class frmCompanias
         grdCompanias.Columns(3).Visible = bEstado
     End Sub
 
-    Private Sub grdUsuarios_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdCompanias.FocusedRowChanged
+    ''' <summary>
+    ''' Evento de cambio de fila en el grid companias
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub grdCompanias_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdCompanias.FocusedRowChanged
         If Not IsNothing(gcCompanias.DataSource) Then
             iRegistroActivo = grdCompanias.FocusedRowHandle
             CargarDetalles()
         End If
     End Sub
 
+    ''' <summary>
+    ''' Evento de click en celda del grid companias
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub grdUsuarios_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles grdCompanias.RowCellClick
         If e.Column.Name = "comEliminar" Then
 
@@ -86,14 +130,29 @@ Public Class frmCompanias
         End If
     End Sub
 
-    Private Sub frmUsuarios_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
+    ''' <summary>
+    ''' Evento de cerrado de formulario companias
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
+    Private Sub frmCompanias_Closing(sender As Object, e As CancelEventArgs) Handles Me.Closing
         frmMain.oListaFormularios.Remove(sender.Text)
     End Sub
 
+    ''' <summary>
+    ''' Evento de click boton modificar companias
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnModificar_Click(sender As Object, e As EventArgs) Handles btnModificar.Click
         HabilitarControles(True)
     End Sub
 
+    ''' <summary>
+    ''' Evento de click boton guardar companias
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnGuardar_Click(sender As Object, e As EventArgs) Handles btnGuardar.Click
         If Validar() Then
             Guardar()
@@ -102,16 +161,30 @@ Public Class frmCompanias
         HabilitarControles(False)
     End Sub
 
+    ''' <summary>
+    ''' Evento click boton cancelar companias
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         CargarGrid()
 
         HabilitarControles(False)
     End Sub
 
+    ''' <summary>
+    ''' Evento click boton insertar compania
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub btnInsertar_Click(sender As Object, e As EventArgs) Handles btnInsertar.Click
         AgregarRegistro()
     End Sub
 
+    ''' <summary>
+    ''' Agregar registro
+    ''' copia de dt del grid o crea nuevo si el grid está vacío
+    ''' </summary>
     Private Sub AgregarRegistro()
         Dim dt As DataTable
         Dim dr As DataRow
@@ -137,6 +210,11 @@ Public Class frmCompanias
         iRegistroActivo = grdCompanias.FocusedRowHandle
     End Sub
 
+    ''' <summary>
+    ''' Evento Valor cambiado en vertical grid
+    ''' </summary>
+    ''' <param name="sender"></param>
+    ''' <param name="e"></param>
     Private Sub vgrdDetalles_CellValueChanged(sender As Object, e As DevExpress.XtraVerticalGrid.Events.CellValueChangedEventArgs) Handles vgrdDetalles.CellValueChanged
         Select Case e.Row.Name
             Case "rowCodigoCompania"
@@ -148,6 +226,10 @@ Public Class frmCompanias
         gcCompanias.DataSource.AcceptChanges()
     End Sub
 
+    ''' <summary>
+    ''' Validar datos requeridos
+    ''' </summary>
+    ''' <returns></returns>
     Private Function Validar() As Boolean
         Dim bValidacion As Boolean = True
 
@@ -162,7 +244,22 @@ Public Class frmCompanias
         Return bValidacion
     End Function
 
+    ''' <summary>
+    ''' Guardar Compania
+    ''' Si la tabla está vacía, se crea la inicial, luego se crea el grupo superusuario y usuario superusuario
+    ''' </summary>
     Private Sub Guardar()
+        Dim swInicial As Boolean
+        Dim iIDCompania As Integer
+        Dim iIDGrupoUsuario As Integer
+        Dim iIDUsuario As Integer
+
+        sSQL = "select count(*) from dbo.Companias"
+        Dim dtNumero As New DataTable
+        dtNumero = f.EjecutarQuery(sSQL)
+
+        swInicial = IIf(dtNumero.Rows(0)(0) = 0, True, False)
+
         Dim clsPro As New clsProcedimientos
         Dim dtPro As New DataTable
 
@@ -170,6 +267,34 @@ Public Class frmCompanias
 
         dtPro = clsPro.pCompanias(gcCompanias.DataSource)
         CargarGrid()
+
+        If swInicial Then
+            sSQL = "select IDCompania from Companias"
+            Dim dtIDInicial As New DataTable
+            dtIDInicial = f.EjecutarQuery(sSQL)
+            iIDCompania = dtIDInicial.Rows(0)(0)
+
+            sSQL = "insert into Grupos" &
+                    " select " & iIDCompania & ", 'GR999', 'SUPERUSUARIO', 1, 1, 1, 1, 1, 1"
+            f.EjecutarComando(sSQL)
+
+            sSQL = "select IDGrupo from Grupos"
+            dtIDInicial = f.EjecutarQuery(sSQL)
+            iIDGrupoUsuario = dtIDInicial.Rows(0)(0)
+
+            sSQL = "insert into Usuarios" &
+                    " select 'US999', 'SUPERUSUARIO', " & iIDGrupoUsuario & ", '3176483284', 
+                    'anysw.col@gmail.com', 'LdG+QR6uHr8=', 1"
+
+            f.EjecutarComando(sSQL)
+
+            sSQL = "select IDUsuario from Usuarios"
+            dtIDInicial = f.EjecutarQuery(sSQL)
+            iIDUsuario = dtIDInicial.Rows(0)(0)
+
+            sSQL = "insert into UsuariosCompanias" &
+                    " select " & iIDUsuario & ", " & iIDCompania & ", " & iIDGrupoUsuario & ", 1"
+        End If
     End Sub
 
 

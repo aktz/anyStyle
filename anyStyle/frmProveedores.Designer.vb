@@ -35,8 +35,8 @@ Partial Class frmProveedores
         Me.proDireccionProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proIndActivo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proEliminar = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GrupoUsuarioCol = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.repEliminar = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.GrupoUsuarioCol = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.btnAgregar = New DevExpress.XtraEditors.SimpleButton()
         Me.vgrdDetalles = New DevExpress.XtraVerticalGrid.VGridControl()
         Me.repActivo = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
@@ -69,8 +69,8 @@ Partial Class frmProveedores
         Me.pnlContenedor.SuspendLayout()
         CType(Me.gcProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repEliminar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vgrdDetalles, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repActivo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboGrupoUsuarioCol, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -190,12 +190,6 @@ Partial Class frmProveedores
         Me.proEliminar.ColumnEdit = Me.repEliminar
         Me.proEliminar.Name = "proEliminar"
         '
-        'GrupoUsuarioCol
-        '
-        Me.GrupoUsuarioCol.AutoHeight = False
-        Me.GrupoUsuarioCol.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
-        Me.GrupoUsuarioCol.Name = "GrupoUsuarioCol"
-        '
         'repEliminar
         '
         Me.repEliminar.AutoHeight = False
@@ -205,6 +199,12 @@ Partial Class frmProveedores
         Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.repEliminar.Name = "repEliminar"
         Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
+        '
+        'GrupoUsuarioCol
+        '
+        Me.GrupoUsuarioCol.AutoHeight = False
+        Me.GrupoUsuarioCol.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
+        Me.GrupoUsuarioCol.Name = "GrupoUsuarioCol"
         '
         'btnAgregar
         '
@@ -523,8 +523,8 @@ Partial Class frmProveedores
         Me.pnlContenedor.ResumeLayout(False)
         CType(Me.gcProveedores, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdProveedores, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repEliminar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vgrdDetalles, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repActivo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboGrupoUsuarioCol, System.ComponentModel.ISupportInitialize).EndInit()
