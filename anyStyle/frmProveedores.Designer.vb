@@ -140,8 +140,6 @@ Partial Class frmProveedores
         Me.proIDProveedor.Caption = "IDProveedor"
         Me.proIDProveedor.FieldName = "IDProveedor"
         Me.proIDProveedor.Name = "proIDProveedor"
-        Me.proIDProveedor.Visible = True
-        Me.proIDProveedor.VisibleIndex = 0
         '
         'proIDCompania
         '
@@ -155,7 +153,7 @@ Partial Class frmProveedores
         Me.proCodigoProveedor.FieldName = "CodigoProveedor"
         Me.proCodigoProveedor.Name = "proCodigoProveedor"
         Me.proCodigoProveedor.Visible = True
-        Me.proCodigoProveedor.VisibleIndex = 1
+        Me.proCodigoProveedor.VisibleIndex = 0
         Me.proCodigoProveedor.Width = 84
         '
         'proNombreProveedor
@@ -164,7 +162,7 @@ Partial Class frmProveedores
         Me.proNombreProveedor.FieldName = "NombreProveedor"
         Me.proNombreProveedor.Name = "proNombreProveedor"
         Me.proNombreProveedor.Visible = True
-        Me.proNombreProveedor.VisibleIndex = 2
+        Me.proNombreProveedor.VisibleIndex = 1
         Me.proNombreProveedor.Width = 218
         '
         'proTelefonoProveedor

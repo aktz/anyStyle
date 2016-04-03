@@ -216,14 +216,22 @@ Public Class frmCompanias
     ''' <param name="sender"></param>
     ''' <param name="e"></param>
     Private Sub vgrdDetalles_CellValueChanged(sender As Object, e As DevExpress.XtraVerticalGrid.Events.CellValueChangedEventArgs) Handles vgrdDetalles.CellValueChanged
-        Select Case e.Row.Name
-            Case "rowCodigoCompania"
-                grdCompanias.SetFocusedRowCellValue("CodigoCompania", e.Row.Properties.Value.ToString.ToUpper)
-            Case "rowNombreCompania"
-                grdCompanias.SetFocusedRowCellValue("NombreCompania", e.Row.Properties.Value.ToString.ToUpper)
-        End Select
+        If grdCompanias.RowCount > 0 Then
+            Select Case e.Row.Name
+                Case "rowCodigoCompania"
+                    grdCompanias.SetFocusedRowCellValue("CodigoCompania", e.Row.Properties.Value.ToString.ToUpper)
+                Case "rowNombreCompania"
+                    grdCompanias.SetFocusedRowCellValue("NombreCompania", e.Row.Properties.Value.ToString.ToUpper)
+            End Select
 
-        gcCompanias.DataSource.AcceptChanges()
+            gcCompanias.DataSource.AcceptChanges()
+        Else
+            MessageBox.Show("No existen registos de compañías. Primero debe insertar una.")
+
+            For Each row In vgrdDetalles.Rows
+                row.Properties.Value = Nothing
+            Next
+        End If
     End Sub
 
     ''' <summary>
@@ -246,7 +254,8 @@ Public Class frmCompanias
 
     ''' <summary>
     ''' Guardar Compania
-    ''' Si la tabla está vacía, se crea la inicial, luego se crea el grupo superusuario y usuario superusuario
+    ''' Si la tabla está vacía, se crea la inicial, luego se crea el grupo superusuario y usuario superusuario 
+    ''' y la vinculacion de usuario con compania
     ''' </summary>
     Private Sub Guardar()
         Dim swInicial As Boolean
@@ -283,8 +292,8 @@ Public Class frmCompanias
             iIDGrupoUsuario = dtIDInicial.Rows(0)(0)
 
             sSQL = "insert into Usuarios" &
-                    " select 'US999', 'SUPERUSUARIO', " & iIDGrupoUsuario & ", '3176483284', 
-                    'anysw.col@gmail.com', 'LdG+QR6uHr8=', 1"
+                    " select '9999999', 'SUPERUSUARIO', " & iIDGrupoUsuario & ", '3176483284'," &
+                    " 'anysw.col@gmail.com', 'k+LLCFDdYof8E5AUDwAADTzAiq31GvWQ', 1"
 
             f.EjecutarComando(sSQL)
 
@@ -294,6 +303,8 @@ Public Class frmCompanias
 
             sSQL = "insert into UsuariosCompanias" &
                     " select " & iIDUsuario & ", " & iIDCompania & ", " & iIDGrupoUsuario & ", 1"
+
+            f.EjecutarComando(sSQL)
         End If
     End Sub
 

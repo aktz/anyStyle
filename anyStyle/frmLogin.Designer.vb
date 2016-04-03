@@ -115,24 +115,24 @@ Partial Class frmLogin
         'txtClave
         '
         Me.txtClave.EditValue = ""
-        Me.txtClave.Location = New System.Drawing.Point(255, 55)
+        Me.txtClave.Location = New System.Drawing.Point(227, 55)
         Me.txtClave.Name = "txtClave"
         Me.txtClave.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClave.Properties.Appearance.Options.UseFont = True
-        Me.txtClave.Properties.MaxLength = 17
+        Me.txtClave.Properties.MaxLength = 20
         Me.txtClave.Properties.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
-        Me.txtClave.Size = New System.Drawing.Size(156, 24)
+        Me.txtClave.Size = New System.Drawing.Size(184, 24)
         Me.txtClave.TabIndex = 0
         '
         'txtUsuario
         '
         Me.txtUsuario.EditValue = ""
-        Me.txtUsuario.Location = New System.Drawing.Point(255, 23)
+        Me.txtUsuario.Location = New System.Drawing.Point(227, 23)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsuario.Properties.Appearance.Options.UseFont = True
-        Me.txtUsuario.Properties.MaxLength = 17
-        Me.txtUsuario.Size = New System.Drawing.Size(156, 24)
+        Me.txtUsuario.Properties.MaxLength = 20
+        Me.txtUsuario.Size = New System.Drawing.Size(184, 24)
         Me.txtUsuario.TabIndex = 0
         '
         'PictureEdit1

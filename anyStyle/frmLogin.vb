@@ -3,7 +3,7 @@
     Dim f As New clsFunciones
 
     Private Sub frmLogin_Load(sender As Object, e As EventArgs) Handles Me.Load
-        txtUsuario.Text = "999"
+        txtUsuario.Text = "9999999"
         txtClave.Text = "123"
 
         CrearPrimeraCompania()
@@ -11,17 +11,17 @@
 
     Private Sub btnIngresar_Click(sender As Object, e As EventArgs) Handles btnIngresar.Click
         sSQL = "select IDUsuario from Usuarios" &
-                " where CodigoUsuario = " & f.InjSQL(txtUsuario.Text.Trim) &
+                " where CodigoUsuario = '" & f.InjSQL(txtUsuario.Text.Trim) & "'" &
                 " and PwdUsuario = '" & f.InjSQL(f.Encriptar(txtClave.Text.Trim)) & "'"
 
         Dim dt As New DataTable
         dt = f.EjecutarQuery(sSQL)
 
         If dt.Rows.Count > 0 Then
-            sSQL = "select *
-                    from UsuariosCompanias uco
-                    inner join Companias com on uco.IDCompania = com.IDCompania
-                    where IDUsuario = " & dt.Rows(0)("IDUsuario")
+            sSQL = "select *" &
+                    " from UsuariosCompanias uco" &
+                    " inner join Companias com on uco.IDCompania = com.IDCompania" &
+                    " where IDUsuario = " & dt.Rows(0)("IDUsuario")
 
             dt = f.EjecutarQuery(sSQL)
 
@@ -71,7 +71,7 @@
     End Sub
 
     Private Sub gcLoginCompanias_DoubleClick(sender As Object, e As EventArgs) Handles gcLoginCompanias.DoubleClick
-        If grdLoginCompanias.RowCount = 1 And grdLoginCompanias.GetFocusedDataRow("CodigoCompania") = 0 Then
+        If grdLoginCompanias.RowCount = 1 And grdLoginCompanias.GetFocusedDataRow("CodigoCompania") = "0" Then
             Me.Close()
             Me.Dispose()
             frmMain.ribMenu.Enabled = True

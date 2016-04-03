@@ -42,6 +42,13 @@ Public Class frmMain
     End Sub
 
     Private Sub itmCerrarSesion_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles itmCerrarSesion.ItemClick
+        oListaFormularios.Clear()
+
+        For Each form As Form In Me.MdiChildren
+            form.Close()
+            form.Dispose()
+        Next
+
         frmLogin.MdiParent = Me
         frmLogin.Show()
         ribMenu.Enabled = False
