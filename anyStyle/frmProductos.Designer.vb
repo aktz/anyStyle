@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
-Partial Class frmProveedores
+Partial Class frmProductos
     Inherits System.Windows.Forms.Form
 
     'Form reemplaza a Dispose para limpiar la lista de componentes.
@@ -22,15 +22,15 @@ Partial Class frmProveedores
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
-        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProveedores))
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductos))
         Me.pnlContenedor = New DevExpress.XtraEditors.PanelControl()
-        Me.gcProveedores = New DevExpress.XtraGrid.GridControl()
-        Me.grdProveedores = New DevExpress.XtraGrid.Views.Grid.GridView()
-        Me.proIDProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.gcProductos = New DevExpress.XtraGrid.GridControl()
+        Me.grdProductos = New DevExpress.XtraGrid.Views.Grid.GridView()
+        Me.proIDProducto = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proIDCompania = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.proCodigoProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.proNombreProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.proCodigoProducto = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.proNombrePrODUCTO = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proTelefonoProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proDireccionProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proIndActivo = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -60,15 +60,15 @@ Partial Class frmProveedores
         Me.rowDireccionProveedor = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowIndActivo = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.panOperaciones = New DevExpress.XtraEditors.PanelControl()
-        Me.btnProveedorProductos = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnPrecios = New DevExpress.XtraEditors.SimpleButton()
         Me.btnInsertar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnGuardar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnModificar = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.pnlContenedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedor.SuspendLayout()
-        CType(Me.gcProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.grdProveedores, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.gcProductos, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.grdProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repEliminar, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vgrdDetalles, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -95,7 +95,7 @@ Partial Class frmProveedores
         Me.pnlContenedor.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.pnlContenedor.Controls.Add(Me.gcProveedores)
+        Me.pnlContenedor.Controls.Add(Me.gcProductos)
         Me.pnlContenedor.Controls.Add(Me.btnAgregar)
         Me.pnlContenedor.Controls.Add(Me.vgrdDetalles)
         Me.pnlContenedor.Location = New System.Drawing.Point(3, 4)
@@ -103,43 +103,43 @@ Partial Class frmProveedores
         Me.pnlContenedor.Size = New System.Drawing.Size(785, 488)
         Me.pnlContenedor.TabIndex = 0
         '
-        'gcProveedores
+        'gcProductos
         '
-        Me.gcProveedores.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+        Me.gcProductos.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
-        Me.gcProveedores.EmbeddedNavigator.Buttons.Append.Visible = False
-        Me.gcProveedores.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
-        Me.gcProveedores.EmbeddedNavigator.Buttons.Edit.Visible = False
-        Me.gcProveedores.EmbeddedNavigator.Buttons.EndEdit.Visible = False
-        Me.gcProveedores.EmbeddedNavigator.Buttons.Remove.Visible = False
-        Me.gcProveedores.Location = New System.Drawing.Point(5, 5)
-        Me.gcProveedores.MainView = Me.grdProveedores
-        Me.gcProveedores.Name = "gcProveedores"
-        Me.gcProveedores.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.GrupoUsuarioCol, Me.repEliminar})
-        Me.gcProveedores.Size = New System.Drawing.Size(304, 478)
-        Me.gcProveedores.TabIndex = 0
-        Me.gcProveedores.UseEmbeddedNavigator = True
-        Me.gcProveedores.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grdProveedores})
+        Me.gcProductos.EmbeddedNavigator.Buttons.Append.Visible = False
+        Me.gcProductos.EmbeddedNavigator.Buttons.CancelEdit.Visible = False
+        Me.gcProductos.EmbeddedNavigator.Buttons.Edit.Visible = False
+        Me.gcProductos.EmbeddedNavigator.Buttons.EndEdit.Visible = False
+        Me.gcProductos.EmbeddedNavigator.Buttons.Remove.Visible = False
+        Me.gcProductos.Location = New System.Drawing.Point(5, 5)
+        Me.gcProductos.MainView = Me.grdProductos
+        Me.gcProductos.Name = "gcProductos"
+        Me.gcProductos.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.GrupoUsuarioCol, Me.repEliminar})
+        Me.gcProductos.Size = New System.Drawing.Size(304, 478)
+        Me.gcProductos.TabIndex = 0
+        Me.gcProductos.UseEmbeddedNavigator = True
+        Me.gcProductos.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grdProductos})
         '
-        'grdProveedores
+        'grdProductos
         '
-        Me.grdProveedores.Appearance.FocusedCell.BackColor = System.Drawing.Color.Transparent
-        Me.grdProveedores.Appearance.FocusedCell.BackColor2 = System.Drawing.Color.Transparent
-        Me.grdProveedores.Appearance.FocusedCell.Options.UseBackColor = True
-        Me.grdProveedores.Appearance.HeaderPanel.Options.UseTextOptions = True
-        Me.grdProveedores.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.grdProveedores.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.proIDProveedor, Me.proIDCompania, Me.proCodigoProveedor, Me.proNombreProveedor, Me.proTelefonoProveedor, Me.proDireccionProveedor, Me.proIndActivo, Me.proEliminar})
-        Me.grdProveedores.GridControl = Me.gcProveedores
-        Me.grdProveedores.Name = "grdProveedores"
-        Me.grdProveedores.OptionsBehavior.Editable = False
-        Me.grdProveedores.OptionsView.ShowGroupPanel = False
-        Me.grdProveedores.OptionsView.ShowIndicator = False
+        Me.grdProductos.Appearance.FocusedCell.BackColor = System.Drawing.Color.Transparent
+        Me.grdProductos.Appearance.FocusedCell.BackColor2 = System.Drawing.Color.Transparent
+        Me.grdProductos.Appearance.FocusedCell.Options.UseBackColor = True
+        Me.grdProductos.Appearance.HeaderPanel.Options.UseTextOptions = True
+        Me.grdProductos.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
+        Me.grdProductos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.proIDProducto, Me.proIDCompania, Me.proCodigoProducto, Me.proNombrePrODUCTO, Me.proTelefonoProveedor, Me.proDireccionProveedor, Me.proIndActivo, Me.proEliminar})
+        Me.grdProductos.GridControl = Me.gcProductos
+        Me.grdProductos.Name = "grdProductos"
+        Me.grdProductos.OptionsBehavior.Editable = False
+        Me.grdProductos.OptionsView.ShowGroupPanel = False
+        Me.grdProductos.OptionsView.ShowIndicator = False
         '
-        'proIDProveedor
+        'proIDProducto
         '
-        Me.proIDProveedor.Caption = "IDProveedor"
-        Me.proIDProveedor.FieldName = "IDProveedor"
-        Me.proIDProveedor.Name = "proIDProveedor"
+        Me.proIDProducto.Caption = "IDProducto"
+        Me.proIDProducto.FieldName = "IDProducto"
+        Me.proIDProducto.Name = "proIDProducto"
         '
         'proIDCompania
         '
@@ -147,23 +147,23 @@ Partial Class frmProveedores
         Me.proIDCompania.FieldName = "IDCompania"
         Me.proIDCompania.Name = "proIDCompania"
         '
-        'proCodigoProveedor
+        'proCodigoProducto
         '
-        Me.proCodigoProveedor.Caption = "DOCUMENTO"
-        Me.proCodigoProveedor.FieldName = "CodigoProveedor"
-        Me.proCodigoProveedor.Name = "proCodigoProveedor"
-        Me.proCodigoProveedor.Visible = True
-        Me.proCodigoProveedor.VisibleIndex = 0
-        Me.proCodigoProveedor.Width = 84
+        Me.proCodigoProducto.Caption = "CÓDIGO"
+        Me.proCodigoProducto.FieldName = "CodigoProducto"
+        Me.proCodigoProducto.Name = "proCodigoProducto"
+        Me.proCodigoProducto.Visible = True
+        Me.proCodigoProducto.VisibleIndex = 0
+        Me.proCodigoProducto.Width = 84
         '
-        'proNombreProveedor
+        'proNombrePrODUCTO
         '
-        Me.proNombreProveedor.Caption = "NOMBRE"
-        Me.proNombreProveedor.FieldName = "NombreProveedor"
-        Me.proNombreProveedor.Name = "proNombreProveedor"
-        Me.proNombreProveedor.Visible = True
-        Me.proNombreProveedor.VisibleIndex = 1
-        Me.proNombreProveedor.Width = 218
+        Me.proNombrePrODUCTO.Caption = "NOMBRE"
+        Me.proNombrePrODUCTO.FieldName = "NombreProveedor"
+        Me.proNombrePrODUCTO.Name = "proNombrePrODUCTO"
+        Me.proNombrePrODUCTO.Visible = True
+        Me.proNombrePrODUCTO.VisibleIndex = 1
+        Me.proNombrePrODUCTO.Width = 218
         '
         'proTelefonoProveedor
         '
@@ -191,9 +191,9 @@ Partial Class frmProveedores
         'repEliminar
         '
         Me.repEliminar.AutoHeight = False
-        SerializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        SerializableAppearanceObject1.Options.UseBackColor = True
-        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        SerializableAppearanceObject2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        SerializableAppearanceObject2.Options.UseBackColor = True
+        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
         Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.repEliminar.Name = "repEliminar"
         Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
@@ -224,7 +224,7 @@ Partial Class frmProveedores
         Me.vgrdDetalles.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.vgrdDetalles.Cursor = System.Windows.Forms.Cursors.SizeWE
+        Me.vgrdDetalles.Cursor = System.Windows.Forms.Cursors.SizeNS
         Me.vgrdDetalles.Location = New System.Drawing.Point(315, 5)
         Me.vgrdDetalles.Name = "vgrdDetalles"
         Me.vgrdDetalles.OptionsBehavior.Editable = False
@@ -419,7 +419,7 @@ Partial Class frmProveedores
         '
         'panOperaciones
         '
-        Me.panOperaciones.Controls.Add(Me.btnProveedorProductos)
+        Me.panOperaciones.Controls.Add(Me.btnPrecios)
         Me.panOperaciones.Controls.Add(Me.btnInsertar)
         Me.panOperaciones.Controls.Add(Me.btnCancelar)
         Me.panOperaciones.Controls.Add(Me.btnGuardar)
@@ -430,20 +430,20 @@ Partial Class frmProveedores
         Me.panOperaciones.Size = New System.Drawing.Size(79, 495)
         Me.panOperaciones.TabIndex = 1
         '
-        'btnProveedorProductos
+        'btnPrecios
         '
-        Me.btnProveedorProductos.AllowFocus = False
-        Me.btnProveedorProductos.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
-        Me.btnProveedorProductos.Appearance.Options.UseBackColor = True
-        Me.btnProveedorProductos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnProveedorProductos.Image = CType(resources.GetObject("btnProveedorProductos.Image"), System.Drawing.Image)
-        Me.btnProveedorProductos.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnProveedorProductos.Location = New System.Drawing.Point(5, 429)
-        Me.btnProveedorProductos.Name = "btnProveedorProductos"
-        Me.btnProveedorProductos.Size = New System.Drawing.Size(69, 61)
-        Me.btnProveedorProductos.TabIndex = 1
-        Me.btnProveedorProductos.Text = "Productos"
-        Me.btnProveedorProductos.Visible = False
+        Me.btnPrecios.AllowFocus = False
+        Me.btnPrecios.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.btnPrecios.Appearance.Options.UseBackColor = True
+        Me.btnPrecios.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.btnPrecios.Image = CType(resources.GetObject("btnPrecios.Image"), System.Drawing.Image)
+        Me.btnPrecios.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
+        Me.btnPrecios.Location = New System.Drawing.Point(5, 429)
+        Me.btnPrecios.Name = "btnPrecios"
+        Me.btnPrecios.Size = New System.Drawing.Size(69, 61)
+        Me.btnPrecios.TabIndex = 1
+        Me.btnPrecios.Text = "Precios"
+        Me.btnPrecios.Visible = False
         '
         'btnInsertar
         '
@@ -504,22 +504,22 @@ Partial Class frmProveedores
         Me.btnModificar.TabIndex = 0
         Me.btnModificar.Text = "Modificar"
         '
-        'frmProveedores
+        'frmProductos
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(870, 495)
         Me.Controls.Add(Me.panOperaciones)
         Me.Controls.Add(Me.pnlContenedor)
-        Me.Name = "frmProveedores"
+        Me.Name = "frmProductos"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Tag = "MaestroDetalle"
-        Me.Text = "PROVEEDORES"
+        Me.Text = "PRODUCTOS"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         CType(Me.pnlContenedor, System.ComponentModel.ISupportInitialize).EndInit()
         Me.pnlContenedor.ResumeLayout(False)
-        CType(Me.gcProveedores, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.grdProveedores, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.gcProductos, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.grdProductos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repEliminar, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vgrdDetalles, System.ComponentModel.ISupportInitialize).EndInit()
@@ -544,12 +544,12 @@ Partial Class frmProveedores
     End Sub
 
     Friend WithEvents pnlContenedor As DevExpress.XtraEditors.PanelControl
-    Friend WithEvents gcProveedores As DevExpress.XtraGrid.GridControl
-    Friend WithEvents grdProveedores As DevExpress.XtraGrid.Views.Grid.GridView
+    Friend WithEvents gcProductos As DevExpress.XtraGrid.GridControl
+    Friend WithEvents grdProductos As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents vgrdDetalles As DevExpress.XtraVerticalGrid.VGridControl
     Friend WithEvents rowIDProveedor As DevExpress.XtraVerticalGrid.Rows.EditorRow
-    Friend WithEvents proIDProveedor As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents proNombreProveedor As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents proIDProducto As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents proNombrePrODUCTO As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents proTelefonoProveedor As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GrupoUsuarioCol As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
     Friend WithEvents rowCodigoProveedor As DevExpress.XtraVerticalGrid.Rows.EditorRow
@@ -578,10 +578,10 @@ Partial Class frmProveedores
     Friend WithEvents repDireccionProveedor As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repManejaCaja As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repManejaProductos As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents proCodigoProveedor As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents proCodigoProducto As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents proEliminar As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents repTelefono As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents repDireccion As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents proIDCompania As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents btnProveedorProductos As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnPrecios As DevExpress.XtraEditors.SimpleButton
 End Class
