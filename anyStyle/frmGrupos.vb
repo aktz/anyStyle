@@ -60,7 +60,7 @@ Public Class frmGrupos
         btnModificar.Enabled = Not bEstado
         btnGuardar.Enabled = bEstado
         btnCancelar.Enabled = bEstado
-        btnInsertar.Enabled = bEstado
+        btnInsertar.Visible = bEstado
 
         vgrdDetalles.OptionsBehavior.Editable = bEstado
         grdGrupos.Columns(11).Visible = bEstado

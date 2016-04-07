@@ -23,7 +23,7 @@ Partial Class frmUsuarios
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmUsuarios))
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject5 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Me.pnlContenedor = New DevExpress.XtraEditors.PanelControl()
         Me.grpCompaniaGrupo = New DevExpress.XtraEditors.GroupControl()
         Me.chklGruposCompanias = New DevExpress.XtraEditors.CheckedListBoxControl()
@@ -41,6 +41,7 @@ Partial Class frmUsuarios
         Me.usuIDUsuario = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.usuCodigoUsuario = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.usuNombreUsuario = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.usuIDGrupoUsuarios = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.usuTelefonoUsuario = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.usuEmailUsuario = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.usuPwdUsuario = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -71,7 +72,6 @@ Partial Class frmUsuarios
         Me.btnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnGuardar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnModificar = New DevExpress.XtraEditors.SimpleButton()
-        Me.usuIDGrupoUsuarios = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.pnlContenedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedor.SuspendLayout()
         CType(Me.grpCompaniaGrupo, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -268,6 +268,12 @@ Partial Class frmUsuarios
         Me.usuNombreUsuario.VisibleIndex = 1
         Me.usuNombreUsuario.Width = 214
         '
+        'usuIDGrupoUsuarios
+        '
+        Me.usuIDGrupoUsuarios.Caption = "Grupo"
+        Me.usuIDGrupoUsuarios.FieldName = "IDGrupoUsuarios"
+        Me.usuIDGrupoUsuarios.Name = "usuIDGrupoUsuarios"
+        '
         'usuTelefonoUsuario
         '
         Me.usuTelefonoUsuario.Caption = "Teléfono"
@@ -301,9 +307,9 @@ Partial Class frmUsuarios
         'repEliminar
         '
         Me.repEliminar.AutoHeight = False
-        SerializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        SerializableAppearanceObject1.Options.UseBackColor = True
-        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        SerializableAppearanceObject5.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        SerializableAppearanceObject5.Options.UseBackColor = True
+        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject5, "", Nothing, Nothing, True)})
         Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.repEliminar.Name = "repEliminar"
         Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
@@ -503,14 +509,13 @@ Partial Class frmUsuarios
         'btnInsertar
         '
         Me.btnInsertar.AllowFocus = False
-        Me.btnInsertar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnInsertar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnInsertar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnInsertar.Appearance.Options.UseBackColor = True
         Me.btnInsertar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnInsertar.Enabled = False
         Me.btnInsertar.Image = CType(resources.GetObject("btnInsertar.Image"), System.Drawing.Image)
         Me.btnInsertar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnInsertar.Location = New System.Drawing.Point(5, 429)
+        Me.btnInsertar.Location = New System.Drawing.Point(5, 226)
         Me.btnInsertar.Name = "btnInsertar"
         Me.btnInsertar.Size = New System.Drawing.Size(69, 61)
         Me.btnInsertar.TabIndex = 0
@@ -524,7 +529,7 @@ Partial Class frmUsuarios
         Me.btnCompaniaGrupo.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.btnCompaniaGrupo.Image = CType(resources.GetObject("btnCompaniaGrupo.Image"), System.Drawing.Image)
         Me.btnCompaniaGrupo.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnCompaniaGrupo.Location = New System.Drawing.Point(5, 282)
+        Me.btnCompaniaGrupo.Location = New System.Drawing.Point(5, 429)
         Me.btnCompaniaGrupo.Name = "btnCompaniaGrupo"
         Me.btnCompaniaGrupo.Size = New System.Drawing.Size(69, 61)
         Me.btnCompaniaGrupo.TabIndex = 0
@@ -534,6 +539,7 @@ Partial Class frmUsuarios
         'btnCancelar
         '
         Me.btnCancelar.AllowFocus = False
+        Me.btnCancelar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnCancelar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnCancelar.Appearance.Options.UseBackColor = True
         Me.btnCancelar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
@@ -549,6 +555,7 @@ Partial Class frmUsuarios
         'btnGuardar
         '
         Me.btnGuardar.AllowFocus = False
+        Me.btnGuardar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnGuardar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnGuardar.Appearance.Options.UseBackColor = True
         Me.btnGuardar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
@@ -564,6 +571,7 @@ Partial Class frmUsuarios
         'btnModificar
         '
         Me.btnModificar.AllowFocus = False
+        Me.btnModificar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnModificar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnModificar.Appearance.Options.UseBackColor = True
         Me.btnModificar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
@@ -574,12 +582,6 @@ Partial Class frmUsuarios
         Me.btnModificar.Size = New System.Drawing.Size(69, 61)
         Me.btnModificar.TabIndex = 0
         Me.btnModificar.Text = "Modificar"
-        '
-        'usuIDGrupoUsuarios
-        '
-        Me.usuIDGrupoUsuarios.Caption = "Grupo"
-        Me.usuIDGrupoUsuarios.FieldName = "IDGrupoUsuarios"
-        Me.usuIDGrupoUsuarios.Name = "usuIDGrupoUsuarios"
         '
         'frmUsuarios
         '

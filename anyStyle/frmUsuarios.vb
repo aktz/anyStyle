@@ -1,7 +1,7 @@
 ﻿Imports System.ComponentModel
 Imports DevExpress.XtraGrid.Views.Base
 Imports DevExpress.XtraGrid.Views.Grid
-Imports DevExpress.XtraVerticalGrid.Events
+Imports btnInsertar.XtraVerticalGrid.Events
 Imports DevExpress.XtraEditors.Controls
 Imports DevExpress.XtraEditors
 
@@ -68,7 +68,7 @@ Public Class frmUsuarios
         btnModificar.Enabled = Not bEstado
         btnGuardar.Enabled = bEstado
         btnCancelar.Enabled = bEstado
-        btnInsertar.Enabled = bEstado
+        btnInsertar.Visible = bEstado
 
         vgrdDetalles.OptionsBehavior.Editable = bEstado
         grdUsuarios.Columns(8).Visible = bEstado

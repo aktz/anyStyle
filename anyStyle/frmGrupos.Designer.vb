@@ -22,12 +22,13 @@ Partial Class frmGrupos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmGrupos))
         Me.pnlContenedor = New DevExpress.XtraEditors.PanelControl()
         Me.gcGrupos = New DevExpress.XtraGrid.GridControl()
         Me.grdGrupos = New DevExpress.XtraGrid.Views.Grid.GridView()
         Me.grpIDGrupo = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.grpIDCompania = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.grpCodigoGrupo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.grpNombreGrupo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.grpIndActivo = New DevExpress.XtraGrid.Columns.GridColumn()
@@ -68,7 +69,6 @@ Partial Class frmGrupos
         Me.btnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnGuardar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnModificar = New DevExpress.XtraEditors.SimpleButton()
-        Me.grpIDCompania = New DevExpress.XtraGrid.Columns.GridColumn()
         CType(Me.pnlContenedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedor.SuspendLayout()
         CType(Me.gcGrupos, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -143,6 +143,12 @@ Partial Class frmGrupos
         Me.grpIDGrupo.FieldName = "IDGrupo"
         Me.grpIDGrupo.Name = "grpIDGrupo"
         '
+        'grpIDCompania
+        '
+        Me.grpIDCompania.Caption = "Compania"
+        Me.grpIDCompania.FieldName = "IDCompania"
+        Me.grpIDCompania.Name = "grpIDCompania"
+        '
         'grpCodigoGrupo
         '
         Me.grpCodigoGrupo.Caption = "CÓDIGO"
@@ -212,9 +218,9 @@ Partial Class frmGrupos
         'repEliminar
         '
         Me.repEliminar.AutoHeight = False
-        SerializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        SerializableAppearanceObject1.Options.UseBackColor = True
-        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        SerializableAppearanceObject2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        SerializableAppearanceObject2.Options.UseBackColor = True
+        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
         Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.repEliminar.Name = "repEliminar"
         Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
@@ -471,10 +477,9 @@ Partial Class frmGrupos
         Me.btnInsertar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnInsertar.Appearance.Options.UseBackColor = True
         Me.btnInsertar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnInsertar.Enabled = False
         Me.btnInsertar.Image = CType(resources.GetObject("btnInsertar.Image"), System.Drawing.Image)
         Me.btnInsertar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnInsertar.Location = New System.Drawing.Point(5, 429)
+        Me.btnInsertar.Location = New System.Drawing.Point(5, 226)
         Me.btnInsertar.Name = "btnInsertar"
         Me.btnInsertar.Size = New System.Drawing.Size(69, 61)
         Me.btnInsertar.TabIndex = 0
@@ -523,12 +528,6 @@ Partial Class frmGrupos
         Me.btnModificar.Size = New System.Drawing.Size(69, 61)
         Me.btnModificar.TabIndex = 0
         Me.btnModificar.Text = "Modificar"
-        '
-        'grpIDCompania
-        '
-        Me.grpIDCompania.Caption = "Compania"
-        Me.grpIDCompania.FieldName = "IDCompania"
-        Me.grpIDCompania.Name = "grpIDCompania"
         '
         'frmGrupos
         '

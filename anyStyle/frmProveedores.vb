@@ -66,7 +66,7 @@ Public Class frmProveedores
         btnModificar.Enabled = Not bEstado
         btnGuardar.Enabled = bEstado
         btnCancelar.Enabled = bEstado
-        btnInsertar.Enabled = bEstado
+        btnInsertar.Visible = bEstado
 
         vgrdDetalles.OptionsBehavior.Editable = bEstado
         grdProveedores.Columns(7).Visible = bEstado

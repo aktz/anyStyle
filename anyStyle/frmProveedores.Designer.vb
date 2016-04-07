@@ -438,7 +438,7 @@ Partial Class frmProveedores
         Me.btnProveedorProductos.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.btnProveedorProductos.Image = CType(resources.GetObject("btnProveedorProductos.Image"), System.Drawing.Image)
         Me.btnProveedorProductos.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnProveedorProductos.Location = New System.Drawing.Point(5, 282)
+        Me.btnProveedorProductos.Location = New System.Drawing.Point(5, 429)
         Me.btnProveedorProductos.Name = "btnProveedorProductos"
         Me.btnProveedorProductos.Size = New System.Drawing.Size(69, 61)
         Me.btnProveedorProductos.TabIndex = 1
@@ -452,10 +452,9 @@ Partial Class frmProveedores
         Me.btnInsertar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnInsertar.Appearance.Options.UseBackColor = True
         Me.btnInsertar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnInsertar.Enabled = False
         Me.btnInsertar.Image = CType(resources.GetObject("btnInsertar.Image"), System.Drawing.Image)
         Me.btnInsertar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnInsertar.Location = New System.Drawing.Point(5, 429)
+        Me.btnInsertar.Location = New System.Drawing.Point(5, 206)
         Me.btnInsertar.Name = "btnInsertar"
         Me.btnInsertar.Size = New System.Drawing.Size(69, 61)
         Me.btnInsertar.TabIndex = 0

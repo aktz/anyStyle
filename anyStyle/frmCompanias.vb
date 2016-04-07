@@ -88,7 +88,7 @@ Public Class frmCompanias
         btnModificar.Enabled = Not bEstado
         btnGuardar.Enabled = bEstado
         btnCancelar.Enabled = bEstado
-        btnInsertar.Enabled = bEstado
+        btnInsertar.Visible = bEstado
 
         vgrdDetalles.OptionsBehavior.Editable = bEstado
         grdCompanias.Columns(3).Visible = bEstado

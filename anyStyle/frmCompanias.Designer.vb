@@ -22,7 +22,7 @@ Partial Class frmCompanias
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim SerializableAppearanceObject3 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmCompanias))
         Me.pnlContenedor = New DevExpress.XtraEditors.PanelControl()
         Me.gcCompanias = New DevExpress.XtraGrid.GridControl()
@@ -30,8 +30,10 @@ Partial Class frmCompanias
         Me.comIDCompania = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.comCodigoCompania = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.comNombreCompania = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.GrupoUsuarioCol = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
+        Me.comEliminar = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.repEliminar = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
+        Me.GrupoUsuarioCol = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
+        Me.RepositoryItemButtonEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         Me.btnAgregar = New DevExpress.XtraEditors.SimpleButton()
         Me.vgrdDetalles = New DevExpress.XtraVerticalGrid.VGridControl()
         Me.repActivo = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
@@ -54,14 +56,13 @@ Partial Class frmCompanias
         Me.btnCancelar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnGuardar = New DevExpress.XtraEditors.SimpleButton()
         Me.btnModificar = New DevExpress.XtraEditors.SimpleButton()
-        Me.comEliminar = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.RepositoryItemButtonEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
         CType(Me.pnlContenedor, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.pnlContenedor.SuspendLayout()
         CType(Me.gcCompanias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdCompanias, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repEliminar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.vgrdDetalles, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repActivo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboGrupoUsuarioCol, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,7 +78,6 @@ Partial Class frmCompanias
         CType(Me.repManejaProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.panOperaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panOperaciones.SuspendLayout()
-        CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'pnlContenedor
@@ -149,21 +149,33 @@ Partial Class frmCompanias
         Me.comNombreCompania.VisibleIndex = 1
         Me.comNombreCompania.Width = 202
         '
+        'comEliminar
+        '
+        Me.comEliminar.ColumnEdit = Me.repEliminar
+        Me.comEliminar.Name = "comEliminar"
+        Me.comEliminar.Width = 28
+        '
+        'repEliminar
+        '
+        Me.repEliminar.AutoHeight = False
+        SerializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        SerializableAppearanceObject1.Options.UseBackColor = True
+        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
+        Me.repEliminar.Name = "repEliminar"
+        Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
+        '
         'GrupoUsuarioCol
         '
         Me.GrupoUsuarioCol.AutoHeight = False
         Me.GrupoUsuarioCol.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)})
         Me.GrupoUsuarioCol.Name = "GrupoUsuarioCol"
         '
-        'repEliminar
+        'RepositoryItemButtonEdit1
         '
-        Me.repEliminar.AutoHeight = False
-        SerializableAppearanceObject3.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        SerializableAppearanceObject3.Options.UseBackColor = True
-        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject3, "", Nothing, Nothing, True)})
-        Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.repEliminar.Name = "repEliminar"
-        Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
+        Me.RepositoryItemButtonEdit1.AutoHeight = False
+        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
+        Me.RepositoryItemButtonEdit1.Name = "RepositoryItemButtonEdit1"
         '
         'btnAgregar
         '
@@ -359,10 +371,9 @@ Partial Class frmCompanias
         Me.btnInsertar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnInsertar.Appearance.Options.UseBackColor = True
         Me.btnInsertar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
-        Me.btnInsertar.Enabled = False
         Me.btnInsertar.Image = CType(resources.GetObject("btnInsertar.Image"), System.Drawing.Image)
         Me.btnInsertar.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter
-        Me.btnInsertar.Location = New System.Drawing.Point(5, 429)
+        Me.btnInsertar.Location = New System.Drawing.Point(5, 226)
         Me.btnInsertar.Name = "btnInsertar"
         Me.btnInsertar.Size = New System.Drawing.Size(69, 61)
         Me.btnInsertar.TabIndex = 0
@@ -412,18 +423,6 @@ Partial Class frmCompanias
         Me.btnModificar.TabIndex = 0
         Me.btnModificar.Text = "Modificar"
         '
-        'comEliminar
-        '
-        Me.comEliminar.ColumnEdit = Me.repEliminar
-        Me.comEliminar.Name = "comEliminar"
-        Me.comEliminar.Width = 28
-        '
-        'RepositoryItemButtonEdit1
-        '
-        Me.RepositoryItemButtonEdit1.AutoHeight = False
-        Me.RepositoryItemButtonEdit1.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton()})
-        Me.RepositoryItemButtonEdit1.Name = "RepositoryItemButtonEdit1"
-        '
         'frmCompanias
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -440,8 +439,9 @@ Partial Class frmCompanias
         Me.pnlContenedor.ResumeLayout(False)
         CType(Me.gcCompanias, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.grdCompanias, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repEliminar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.GrupoUsuarioCol, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.vgrdDetalles, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repActivo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboGrupoUsuarioCol, System.ComponentModel.ISupportInitialize).EndInit()
@@ -457,7 +457,6 @@ Partial Class frmCompanias
         CType(Me.repManejaProductos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.panOperaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panOperaciones.ResumeLayout(False)
-        CType(Me.RepositoryItemButtonEdit1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
