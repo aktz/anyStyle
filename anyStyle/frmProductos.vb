@@ -13,6 +13,7 @@ Public Class frmProductos
         CargarCombos()
         CargarGrid()
         RecalcularAnchoVGrid()
+        HabilitarControles(False)
     End Sub
 
     Private Sub RecalcularAnchoVGrid()
@@ -40,7 +41,6 @@ Public Class frmProductos
             AddHandler grdProductos.FocusedRowChanged, AddressOf grdProveedores_FocusedRowChanged
 
             grdProductos.FocusedRowHandle = iRegistroActivo
-
             CargarDetalles()
         End If
     End Sub
@@ -53,11 +53,10 @@ Public Class frmProductos
         If Not IsNothing(grdProductos.GetFocusedRow) Then
             Dim dr As DataRowView = grdProductos.GetFocusedRow
 
-            vgrdDetalles.Rows("rowIDProveedor").Properties.Value = dr("IDProveedor")
-            vgrdDetalles.Rows("rowCodigoProveedor").Properties.Value = dr("CodigoProveedor")
-            vgrdDetalles.Rows("rowNombreProveedor").Properties.Value = dr("NombreProveedor")
-            vgrdDetalles.Rows("rowTelefonoProveedor").Properties.Value = dr("TelefonoProveedor")
-            vgrdDetalles.Rows("rowDireccionProveedor").Properties.Value = dr("DireccionProveedor")
+            vgrdDetalles.Rows("rowIDProducto").Properties.Value = dr("IDProducto")
+            vgrdDetalles.Rows("rowCodigoProducto").Properties.Value = dr("CodigoProducto")
+            vgrdDetalles.Rows("rowNombreProducto").Properties.Value = dr("NombreProducto")
+            vgrdDetalles.Rows("rowIndPerecedero").Properties.Value = dr("IndPerecedero")
             vgrdDetalles.Rows("rowIndActivo").Properties.Value = dr("IndActivo")
         End If
     End Sub
@@ -68,8 +67,17 @@ Public Class frmProductos
         btnCancelar.Enabled = bEstado
         btnInsertar.Visible = bEstado
 
-        vgrdDetalles.OptionsBehavior.Editable = bEstado
-        grdProductos.Columns(7).Visible = bEstado
+        grdProductos.Columns(6).Visible = bEstado
+
+        If grdProductos.RowCount > 0 Then
+            For Each row In vgrdDetalles.Rows
+                row.Properties.ReadOnly = Not bEstado
+            Next
+        Else
+            For Each row In vgrdDetalles.Rows
+                row.Properties.ReadOnly = True
+            Next
+        End If
     End Sub
 
     Private Sub grdProveedores_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdProductos.FocusedRowChanged
@@ -79,14 +87,15 @@ Public Class frmProductos
         End If
     End Sub
 
-    Private Sub grdProveedores_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles grdProductos.RowCellClick
+    Private Sub grdProductos_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles grdProductos.RowCellClick
         If e.Column.Name = "proEliminar" Then
 
-            If MessageBox.Show("Está seguro de eliminar este proveedor?", "Eliminar Proveedor",
+            If MessageBox.Show("Está seguro de eliminar este producto?", "Eliminar Proveedor",
                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                sSQL = "Select count(*) from ProveedoresProductos where IDProveedor = " &
-                        grdProductos.GetFocusedRowCellValue("IDProveedor") &
-                        " and IndActivo = 1"
+                sSQL = "select count(*)" &
+                        " from ServiciosProductos sp" &
+                        " inner join ProductosMovimientos mo On sp.IDProducto = mo.IDProducto" &
+                        " and sp.IDCompania = " & frmMain.oDatosUsuario.Compania
                 Dim dt As New DataTable
                 dt = f.EjecutarQuery(sSQL)
 
@@ -94,7 +103,7 @@ Public Class frmProductos
                     grdProductos.DeleteRow(e.RowHandle)
                     gcProductos.DataSource.AcceptChanges()
                 Else
-                    MessageBox.Show("No es posible eliminar el proveedor. Existen productos vinculados.", "Eliminar Proveedor")
+                    MessageBox.Show("No es posible eliminar el producto. Existen servicios y/o movimientos vinculados.", "Eliminar Proveedor")
                 End If
 
             End If
@@ -119,7 +128,7 @@ Public Class frmProductos
 
     Private Sub btnCancelar_Click(sender As Object, e As EventArgs) Handles btnCancelar.Click
         CargarGrid()
-
+        iOperacion = 0
         HabilitarControles(False)
     End Sub
 
@@ -135,47 +144,53 @@ Public Class frmProductos
             dt = gcProductos.DataSource.Copy
         Else
             dt = New DataTable
-            dt.Columns.Add("IDProveedor", Type.GetType("System.Int32"))
+            dt.Columns.Add("IDProducto", Type.GetType("System.Int32"))
             dt.Columns.Add("IDCompania", Type.GetType("System.Int32"))
-            dt.Columns.Add("CodigoProveedor", Type.GetType("System.String"))
-            dt.Columns.Add("NombreProveedor", Type.GetType("System.String"))
-            dt.Columns.Add("TelefonoProveedor", Type.GetType("System.String"))
-            dt.Columns.Add("DireccionProveedor", Type.GetType("System.String"))
+            dt.Columns.Add("CodigoProducto", Type.GetType("System.String"))
+            dt.Columns.Add("NombreProducto", Type.GetType("System.String"))
+            dt.Columns.Add("IndPerecedero", Type.GetType("System.Boolean"))
             dt.Columns.Add("IndActivo", Type.GetType("System.Boolean"))
         End If
 
         dr = dt.NewRow
 
-        dr("IDProveedor") = 0
+        dr("IDProducto") = 0
         dr("IDCompania") = frmMain.oDatosUsuario.Compania
-        dr("CodigoProveedor") = ""
-        dr("NombreProveedor") = ""
-        dr("TelefonoProveedor") = ""
-        dr("DireccionProveedor") = ""
+        dr("CodigoProducto") = ""
+        dr("NombreProducto") = ""
+        dr("IndPerecedero") = False
         dr("IndActivo") = True
         dt.Rows.Add(dr)
 
         gcProductos.DataSource = dt
         grdProductos.FocusedRowHandle = dt.Rows.Count - 1
         iRegistroActivo = grdProductos.FocusedRowHandle
+
+        HabilitarControles(True)
     End Sub
 
     Private Sub vgrdDetalles_CellValueChanged(sender As Object, e As DevExpress.XtraVerticalGrid.Events.CellValueChangedEventArgs) Handles vgrdDetalles.CellValueChanged
         Try
-            Select Case e.Row.Name
-                Case "rowCodigoProveedor"
-                    grdProductos.SetFocusedRowCellValue("CodigoProveedor", e.Row.Properties.Value)
-                Case "rowNombreProveedor"
-                    grdProductos.SetFocusedRowCellValue("NombreProveedor", e.Row.Properties.Value)
-                Case "rowTelefonoProveedor"
-                    grdProductos.SetFocusedRowCellValue("TelefonoProveedor", e.Row.Properties.Value)
-                Case "rowDireccionProveedor"
-                    grdProductos.SetFocusedRowCellValue("DireccionProveedor", e.Row.Properties.Value)
-                Case "rowIndActivo"
-                    grdProductos.SetFocusedRowCellValue("IndActivo", e.Row.Properties.Value)
-            End Select
+            If grdProductos.RowCount > 0 Then
+                Select Case e.Row.Name
+                    Case "rowCodigoProducto"
+                        grdProductos.SetFocusedRowCellValue("CodigoProducto", e.Row.Properties.Value)
+                    Case "rowNombreProducto"
+                        grdProductos.SetFocusedRowCellValue("NombreProducto", e.Row.Properties.Value)
+                    Case "rowIndPerecedero"
+                        grdProductos.SetFocusedRowCellValue("IndPerecedero", e.Row.Properties.Value)
+                    Case "rowIndActivo"
+                        grdProductos.SetFocusedRowCellValue("IndActivo", e.Row.Properties.Value)
+                End Select
 
-            gcProductos.DataSource.AcceptChanges()
+                gcProductos.DataSource.AcceptChanges()
+            Else
+                MessageBox.Show("No existen registos de Productos. Primero debe insertar uno.")
+
+                For Each row In vgrdDetalles.Rows
+                    row.Properties.Value = Nothing
+                Next
+            End If
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -185,7 +200,7 @@ Public Class frmProductos
         Dim bValidacion As Boolean = True
 
         For Each row As DataRow In gcProductos.DataSource.Rows
-            If row("CodigoProveedor") = "" AndAlso row("NombreProveedor") = "" Then
+            If row("CodigoProducto") = "" OrElse row("NombreProducto") = "" Then
                 bValidacion = False
                 MessageBox.Show("Existen Campos por configurar")
                 Exit For
@@ -201,7 +216,7 @@ Public Class frmProductos
 
         gcProductos.Focus()
 
-        dtPro = clsPro.pProveedores(gcProductos.DataSource)
+        dtPro = clsPro.pProductos(gcProductos.DataSource)
         CargarGrid()
     End Sub
 

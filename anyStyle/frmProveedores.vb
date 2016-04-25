@@ -185,7 +185,7 @@ Public Class frmProveedores
         Dim bValidacion As Boolean = True
 
         For Each row As DataRow In gcProveedores.DataSource.Rows
-            If row("CodigoProveedor") = "" AndAlso row("NombreProveedor") = "" Then
+            If row("CodigoProveedor") = "" OrElse row("NombreProveedor") = "" Then
                 bValidacion = False
                 MessageBox.Show("Existen Campos por configurar")
                 Exit For

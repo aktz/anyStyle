@@ -114,8 +114,10 @@ Public Class frmCompanias
     Private Sub grdUsuarios_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles grdCompanias.RowCellClick
         If e.Column.Name = "comEliminar" Then
 
-            If MessageBox.Show("Está seguro de eliminar esta compañía?", "Eliminar compañía", MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
-                sSQL = "select count(*) from UsuariosCompanias where IDCompania = " & grdCompanias.GetFocusedRowCellValue("IDCompania")
+            If MessageBox.Show("Está seguro de eliminar esta compañía?", "Eliminar compañía",
+                               MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
+                sSQL = "select count(*) from UsuariosCompanias where IDCompania = " &
+                        grdCompanias.GetFocusedRowCellValue("IDCompania")
                 Dim dt As New DataTable
                 dt = f.EjecutarQuery(sSQL)
 

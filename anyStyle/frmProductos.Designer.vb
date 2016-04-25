@@ -22,7 +22,7 @@ Partial Class frmProductos
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmProductos))
         Me.pnlContenedor = New DevExpress.XtraEditors.PanelControl()
         Me.gcProductos = New DevExpress.XtraGrid.GridControl()
@@ -30,9 +30,8 @@ Partial Class frmProductos
         Me.proIDProducto = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proIDCompania = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proCodigoProducto = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.proNombrePrODUCTO = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.proTelefonoProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
-        Me.proDireccionProveedor = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.proNombreProducto = New DevExpress.XtraGrid.Columns.GridColumn()
+        Me.proIndPerecedero = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proIndActivo = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.proEliminar = New DevExpress.XtraGrid.Columns.GridColumn()
         Me.repEliminar = New DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit()
@@ -42,22 +41,21 @@ Partial Class frmProductos
         Me.repActivo = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.cboGrupoUsuarioCol = New DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit()
         Me.repCodigoUsuario = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.repCodigoProveedor = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.repNombreProveedor = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.repCodigoProducto = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.repNombreProducto = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.repEmailUsuario = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.repTelefonoProveedor = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.repVisualizar = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
+        Me.repPerecedero = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.repConfigurarUsuarios = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.repDireccionProveedor = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.repManejaCaja = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.repManejaProductos = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
-        Me.repTelefono = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.repIndPerecedero = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.repDireccion = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.rowIDProveedor = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
-        Me.rowCodigoProveedor = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
-        Me.rowNombreProveedor = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
-        Me.rowTelefonoProveedor = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
-        Me.rowDireccionProveedor = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
+        Me.rowIDProducto = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
+        Me.rowCodigoProducto = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
+        Me.rowNombreProducto = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
+        Me.rowIndPerecedero = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowIndActivo = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.panOperaciones = New DevExpress.XtraEditors.PanelControl()
         Me.btnPrecios = New DevExpress.XtraEditors.SimpleButton()
@@ -75,16 +73,16 @@ Partial Class frmProductos
         CType(Me.repActivo, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.cboGrupoUsuarioCol, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repCodigoUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.repCodigoProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.repNombreProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.repCodigoProducto, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.repNombreProducto, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repEmailUsuario, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repTelefonoProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.repVisualizar, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.repPerecedero, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repConfigurarUsuarios, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repDireccionProveedor, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repManejaCaja, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repManejaProductos, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.repTelefono, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.repIndPerecedero, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repDireccion, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.panOperaciones, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.panOperaciones.SuspendLayout()
@@ -128,7 +126,7 @@ Partial Class frmProductos
         Me.grdProductos.Appearance.FocusedCell.Options.UseBackColor = True
         Me.grdProductos.Appearance.HeaderPanel.Options.UseTextOptions = True
         Me.grdProductos.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center
-        Me.grdProductos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.proIDProducto, Me.proIDCompania, Me.proCodigoProducto, Me.proNombrePrODUCTO, Me.proTelefonoProveedor, Me.proDireccionProveedor, Me.proIndActivo, Me.proEliminar})
+        Me.grdProductos.Columns.AddRange(New DevExpress.XtraGrid.Columns.GridColumn() {Me.proIDProducto, Me.proIDCompania, Me.proCodigoProducto, Me.proNombreProducto, Me.proIndPerecedero, Me.proIndActivo, Me.proEliminar})
         Me.grdProductos.GridControl = Me.gcProductos
         Me.grdProductos.Name = "grdProductos"
         Me.grdProductos.OptionsBehavior.Editable = False
@@ -156,26 +154,20 @@ Partial Class frmProductos
         Me.proCodigoProducto.VisibleIndex = 0
         Me.proCodigoProducto.Width = 84
         '
-        'proNombrePrODUCTO
+        'proNombreProducto
         '
-        Me.proNombrePrODUCTO.Caption = "NOMBRE"
-        Me.proNombrePrODUCTO.FieldName = "NombreProveedor"
-        Me.proNombrePrODUCTO.Name = "proNombrePrODUCTO"
-        Me.proNombrePrODUCTO.Visible = True
-        Me.proNombrePrODUCTO.VisibleIndex = 1
-        Me.proNombrePrODUCTO.Width = 218
+        Me.proNombreProducto.Caption = "NOMBRE"
+        Me.proNombreProducto.FieldName = "NombreProducto"
+        Me.proNombreProducto.Name = "proNombreProducto"
+        Me.proNombreProducto.Visible = True
+        Me.proNombreProducto.VisibleIndex = 1
+        Me.proNombreProducto.Width = 218
         '
-        'proTelefonoProveedor
+        'proIndPerecedero
         '
-        Me.proTelefonoProveedor.Caption = "Telefono"
-        Me.proTelefonoProveedor.FieldName = "TelefonoProveedor"
-        Me.proTelefonoProveedor.Name = "proTelefonoProveedor"
-        '
-        'proDireccionProveedor
-        '
-        Me.proDireccionProveedor.Caption = "Direccion"
-        Me.proDireccionProveedor.FieldName = "DireccionProveedor"
-        Me.proDireccionProveedor.Name = "proDireccionProveedor"
+        Me.proIndPerecedero.Caption = "IndPerecedero"
+        Me.proIndPerecedero.FieldName = "IndPerecedero"
+        Me.proIndPerecedero.Name = "proIndPerecedero"
         '
         'proIndActivo
         '
@@ -191,9 +183,9 @@ Partial Class frmProductos
         'repEliminar
         '
         Me.repEliminar.AutoHeight = False
-        SerializableAppearanceObject2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        SerializableAppearanceObject2.Options.UseBackColor = True
-        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
+        SerializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        SerializableAppearanceObject1.Options.UseBackColor = True
+        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
         Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.repEliminar.Name = "repEliminar"
         Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
@@ -227,12 +219,11 @@ Partial Class frmProductos
         Me.vgrdDetalles.Cursor = System.Windows.Forms.Cursors.SizeNS
         Me.vgrdDetalles.Location = New System.Drawing.Point(315, 5)
         Me.vgrdDetalles.Name = "vgrdDetalles"
-        Me.vgrdDetalles.OptionsBehavior.Editable = False
         Me.vgrdDetalles.OptionsView.AutoScaleBands = True
         Me.vgrdDetalles.RecordWidth = 261
-        Me.vgrdDetalles.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.repActivo, Me.cboGrupoUsuarioCol, Me.repCodigoUsuario, Me.repCodigoProveedor, Me.repNombreProveedor, Me.repEmailUsuario, Me.repTelefonoProveedor, Me.repVisualizar, Me.repConfigurarUsuarios, Me.repDireccionProveedor, Me.repManejaCaja, Me.repManejaProductos, Me.repTelefono, Me.repDireccion})
+        Me.vgrdDetalles.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.repActivo, Me.cboGrupoUsuarioCol, Me.repCodigoUsuario, Me.repCodigoProducto, Me.repNombreProducto, Me.repEmailUsuario, Me.repTelefonoProveedor, Me.repPerecedero, Me.repConfigurarUsuarios, Me.repDireccionProveedor, Me.repManejaCaja, Me.repManejaProductos, Me.repIndPerecedero, Me.repDireccion})
         Me.vgrdDetalles.RowHeaderWidth = 198
-        Me.vgrdDetalles.Rows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowIDProveedor, Me.rowCodigoProveedor, Me.rowNombreProveedor, Me.rowTelefonoProveedor, Me.rowDireccionProveedor, Me.rowIndActivo})
+        Me.vgrdDetalles.Rows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowIDProducto, Me.rowCodigoProducto, Me.rowNombreProducto, Me.rowIndPerecedero, Me.rowIndActivo})
         Me.vgrdDetalles.Size = New System.Drawing.Size(465, 478)
         Me.vgrdDetalles.TabIndex = 1
         '
@@ -266,27 +257,27 @@ Partial Class frmProductos
         Me.repCodigoUsuario.MaxLength = 50
         Me.repCodigoUsuario.Name = "repCodigoUsuario"
         '
-        'repCodigoProveedor
+        'repCodigoProducto
         '
-        Me.repCodigoProveedor.AutoHeight = False
-        Me.repCodigoProveedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.repCodigoProveedor.Mask.EditMask = "[0-9a-zA-Z]*"
-        Me.repCodigoProveedor.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.repCodigoProveedor.Mask.ShowPlaceHolders = False
-        Me.repCodigoProveedor.Mask.UseMaskAsDisplayFormat = True
-        Me.repCodigoProveedor.MaxLength = 50
-        Me.repCodigoProveedor.Name = "repCodigoProveedor"
+        Me.repCodigoProducto.AutoHeight = False
+        Me.repCodigoProducto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.repCodigoProducto.Mask.EditMask = "[0-9a-zA-Z]*"
+        Me.repCodigoProducto.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
+        Me.repCodigoProducto.Mask.ShowPlaceHolders = False
+        Me.repCodigoProducto.Mask.UseMaskAsDisplayFormat = True
+        Me.repCodigoProducto.MaxLength = 50
+        Me.repCodigoProducto.Name = "repCodigoProducto"
         '
-        'repNombreProveedor
+        'repNombreProducto
         '
-        Me.repNombreProveedor.AutoHeight = False
-        Me.repNombreProveedor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
-        Me.repNombreProveedor.Mask.EditMask = "[0-9a-zA-ZáéíóúÁÉÍÓÚ \-_#$%&]*"
-        Me.repNombreProveedor.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
-        Me.repNombreProveedor.Mask.ShowPlaceHolders = False
-        Me.repNombreProveedor.Mask.UseMaskAsDisplayFormat = True
-        Me.repNombreProveedor.MaxLength = 50
-        Me.repNombreProveedor.Name = "repNombreProveedor"
+        Me.repNombreProducto.AutoHeight = False
+        Me.repNombreProducto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper
+        Me.repNombreProducto.Mask.EditMask = "[0-9a-zA-ZáéíóúÁÉÍÓÚ \-_#$%&]*"
+        Me.repNombreProducto.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.RegEx
+        Me.repNombreProducto.Mask.ShowPlaceHolders = False
+        Me.repNombreProducto.Mask.UseMaskAsDisplayFormat = True
+        Me.repNombreProducto.MaxLength = 50
+        Me.repNombreProducto.Name = "repNombreProducto"
         '
         'repEmailUsuario
         '
@@ -307,14 +298,14 @@ Partial Class frmProductos
         Me.repTelefonoProveedor.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         Me.repTelefonoProveedor.ValueGrayed = False
         '
-        'repVisualizar
+        'repPerecedero
         '
-        Me.repVisualizar.AutoHeight = False
-        Me.repVisualizar.Caption = ""
-        Me.repVisualizar.GlyphAlignment = DevExpress.Utils.HorzAlignment.Near
-        Me.repVisualizar.Name = "repVisualizar"
-        Me.repVisualizar.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
-        Me.repVisualizar.ValueGrayed = False
+        Me.repPerecedero.AutoHeight = False
+        Me.repPerecedero.Caption = ""
+        Me.repPerecedero.GlyphAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.repPerecedero.Name = "repPerecedero"
+        Me.repPerecedero.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
+        Me.repPerecedero.ValueGrayed = False
         '
         'repConfigurarUsuarios
         '
@@ -352,60 +343,50 @@ Partial Class frmProductos
         Me.repManejaProductos.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked
         Me.repManejaProductos.ValueGrayed = False
         '
-        'repTelefono
+        'repIndPerecedero
         '
-        Me.repTelefono.AutoHeight = False
-        Me.repTelefono.Name = "repTelefono"
+        Me.repIndPerecedero.AutoHeight = False
+        Me.repIndPerecedero.Name = "repIndPerecedero"
         '
         'repDireccion
         '
         Me.repDireccion.AutoHeight = False
         Me.repDireccion.Name = "repDireccion"
         '
-        'rowIDProveedor
+        'rowIDProducto
         '
-        Me.rowIDProveedor.Appearance.Options.UseTextOptions = True
-        Me.rowIDProveedor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-        Me.rowIDProveedor.Name = "rowIDProveedor"
-        Me.rowIDProveedor.Properties.Caption = "IDPROVEEDOR"
-        Me.rowIDProveedor.Properties.FieldName = "IDProveedor"
-        Me.rowIDProveedor.Visible = False
+        Me.rowIDProducto.Name = "rowIDProducto"
+        Me.rowIDProducto.Properties.Caption = "IDPRODUCTO"
+        Me.rowIDProducto.Properties.FieldName = "IDProducto"
+        Me.rowIDProducto.Visible = False
         '
-        'rowCodigoProveedor
+        'rowCodigoProducto
         '
-        Me.rowCodigoProveedor.Appearance.Options.UseTextOptions = True
-        Me.rowCodigoProveedor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-        Me.rowCodigoProveedor.Height = 20
-        Me.rowCodigoProveedor.Name = "rowCodigoProveedor"
-        Me.rowCodigoProveedor.Properties.Caption = "CÓDIGO"
-        Me.rowCodigoProveedor.Properties.FieldName = "CodigoProveedor"
-        Me.rowCodigoProveedor.Properties.RowEdit = Me.repCodigoProveedor
+        Me.rowCodigoProducto.Appearance.Options.UseTextOptions = True
+        Me.rowCodigoProducto.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.rowCodigoProducto.Height = 20
+        Me.rowCodigoProducto.Name = "rowCodigoProducto"
+        Me.rowCodigoProducto.Properties.Caption = "CÓDIGO"
+        Me.rowCodigoProducto.Properties.FieldName = "CodigoProducto"
+        Me.rowCodigoProducto.Properties.RowEdit = Me.repCodigoProducto
         '
-        'rowNombreProveedor
+        'rowNombreProducto
         '
-        Me.rowNombreProveedor.Appearance.Options.UseTextOptions = True
-        Me.rowNombreProveedor.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
-        Me.rowNombreProveedor.Height = 20
-        Me.rowNombreProveedor.Name = "rowNombreProveedor"
-        Me.rowNombreProveedor.Properties.Caption = "NOMBRE"
-        Me.rowNombreProveedor.Properties.FieldName = "NombreProveedor"
-        Me.rowNombreProveedor.Properties.RowEdit = Me.repNombreProveedor
+        Me.rowNombreProducto.Appearance.Options.UseTextOptions = True
+        Me.rowNombreProducto.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near
+        Me.rowNombreProducto.Height = 20
+        Me.rowNombreProducto.Name = "rowNombreProducto"
+        Me.rowNombreProducto.Properties.Caption = "NOMBRE"
+        Me.rowNombreProducto.Properties.FieldName = "NombreProducto"
+        Me.rowNombreProducto.Properties.RowEdit = Me.repNombreProducto
         '
-        'rowTelefonoProveedor
+        'rowIndPerecedero
         '
-        Me.rowTelefonoProveedor.Height = 20
-        Me.rowTelefonoProveedor.Name = "rowTelefonoProveedor"
-        Me.rowTelefonoProveedor.Properties.Caption = "TELÉFONO"
-        Me.rowTelefonoProveedor.Properties.FieldName = "TelefonoProveedor"
-        Me.rowTelefonoProveedor.Properties.RowEdit = Me.repTelefono
-        '
-        'rowDireccionProveedor
-        '
-        Me.rowDireccionProveedor.Height = 20
-        Me.rowDireccionProveedor.Name = "rowDireccionProveedor"
-        Me.rowDireccionProveedor.Properties.Caption = "DIRECCIÓN"
-        Me.rowDireccionProveedor.Properties.FieldName = "DireccionProveedor"
-        Me.rowDireccionProveedor.Properties.RowEdit = Me.repDireccion
+        Me.rowIndPerecedero.Height = 20
+        Me.rowIndPerecedero.Name = "rowIndPerecedero"
+        Me.rowIndPerecedero.Properties.Caption = "PERECEDERO"
+        Me.rowIndPerecedero.Properties.FieldName = "IndPerecedero"
+        Me.rowIndPerecedero.Properties.RowEdit = Me.repPerecedero
         '
         'rowIndActivo
         '
@@ -433,6 +414,7 @@ Partial Class frmProductos
         'btnPrecios
         '
         Me.btnPrecios.AllowFocus = False
+        Me.btnPrecios.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnPrecios.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnPrecios.Appearance.Options.UseBackColor = True
         Me.btnPrecios.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
@@ -448,7 +430,7 @@ Partial Class frmProductos
         'btnInsertar
         '
         Me.btnInsertar.AllowFocus = False
-        Me.btnInsertar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnInsertar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnInsertar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnInsertar.Appearance.Options.UseBackColor = True
         Me.btnInsertar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
@@ -526,16 +508,16 @@ Partial Class frmProductos
         CType(Me.repActivo, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.cboGrupoUsuarioCol, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repCodigoUsuario, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.repCodigoProveedor, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.repNombreProveedor, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.repCodigoProducto, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.repNombreProducto, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repEmailUsuario, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repTelefonoProveedor, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.repVisualizar, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.repPerecedero, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repConfigurarUsuarios, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repDireccionProveedor, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repManejaCaja, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repManejaProductos, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.repTelefono, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.repIndPerecedero, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repDireccion, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.panOperaciones, System.ComponentModel.ISupportInitialize).EndInit()
         Me.panOperaciones.ResumeLayout(False)
@@ -547,13 +529,12 @@ Partial Class frmProductos
     Friend WithEvents gcProductos As DevExpress.XtraGrid.GridControl
     Friend WithEvents grdProductos As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents vgrdDetalles As DevExpress.XtraVerticalGrid.VGridControl
-    Friend WithEvents rowIDProveedor As DevExpress.XtraVerticalGrid.Rows.EditorRow
     Friend WithEvents proIDProducto As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents proNombrePrODUCTO As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents proTelefonoProveedor As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents proNombreProducto As DevExpress.XtraGrid.Columns.GridColumn
+    Friend WithEvents proIndPerecedero As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents GrupoUsuarioCol As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
-    Friend WithEvents rowCodigoProveedor As DevExpress.XtraVerticalGrid.Rows.EditorRow
-    Friend WithEvents rowNombreProveedor As DevExpress.XtraVerticalGrid.Rows.EditorRow
+    Friend WithEvents rowCodigoProducto As DevExpress.XtraVerticalGrid.Rows.EditorRow
+    Friend WithEvents rowNombreProducto As DevExpress.XtraVerticalGrid.Rows.EditorRow
     Friend WithEvents rowIndActivo As DevExpress.XtraVerticalGrid.Rows.EditorRow
     Friend WithEvents repActivo As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents cboGrupoUsuarioCol As DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit
@@ -565,23 +546,22 @@ Partial Class frmProductos
     Friend WithEvents btnInsertar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents repCodigoUsuario As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents repEliminar As DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit
-    Friend WithEvents repCodigoProveedor As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents repNombreProveedor As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents repCodigoProducto As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents repNombreProducto As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents repEmailUsuario As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents proDireccionProveedor As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents proIndActivo As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents rowTelefonoProveedor As DevExpress.XtraVerticalGrid.Rows.EditorRow
-    Friend WithEvents rowDireccionProveedor As DevExpress.XtraVerticalGrid.Rows.EditorRow
+    Friend WithEvents rowIndPerecedero As DevExpress.XtraVerticalGrid.Rows.EditorRow
     Friend WithEvents repTelefonoProveedor As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
-    Friend WithEvents repVisualizar As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
+    Friend WithEvents repPerecedero As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repConfigurarUsuarios As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repDireccionProveedor As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repManejaCaja As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repManejaProductos As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents proCodigoProducto As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents proEliminar As DevExpress.XtraGrid.Columns.GridColumn
-    Friend WithEvents repTelefono As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents repIndPerecedero As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents repDireccion As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents proIDCompania As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents btnPrecios As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents rowIDProducto As DevExpress.XtraVerticalGrid.Rows.EditorRow
 End Class
