@@ -32,35 +32,37 @@ Partial Class frmLogin
         Me.btnIngresar = New DevExpress.XtraEditors.SimpleButton()
         Me.txtClave = New DevExpress.XtraEditors.TextEdit()
         Me.txtUsuario = New DevExpress.XtraEditors.TextEdit()
-        Me.PictureEdit1 = New DevExpress.XtraEditors.PictureEdit()
         CType(Me.PanelControl1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.PanelControl1.SuspendLayout()
         CType(Me.gcLoginCompanias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.grdLoginCompanias, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtClave.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.txtUsuario.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'PanelControl1
         '
-        Me.PanelControl1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.PanelControl1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.PanelControl1.Controls.Add(Me.gcLoginCompanias)
         Me.PanelControl1.Controls.Add(Me.btnIngresar)
         Me.PanelControl1.Controls.Add(Me.txtClave)
         Me.PanelControl1.Controls.Add(Me.txtUsuario)
-        Me.PanelControl1.Controls.Add(Me.PictureEdit1)
-        Me.PanelControl1.Location = New System.Drawing.Point(25, 25)
+        Me.PanelControl1.Location = New System.Drawing.Point(12, 12)
         Me.PanelControl1.Name = "PanelControl1"
-        Me.PanelControl1.Size = New System.Drawing.Size(434, 347)
+        Me.PanelControl1.Size = New System.Drawing.Size(757, 468)
         Me.PanelControl1.TabIndex = 0
         '
         'gcLoginCompanias
         '
-        Me.gcLoginCompanias.Location = New System.Drawing.Point(22, 140)
+        Me.gcLoginCompanias.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.gcLoginCompanias.Location = New System.Drawing.Point(195, 5)
         Me.gcLoginCompanias.MainView = Me.grdLoginCompanias
         Me.gcLoginCompanias.Name = "gcLoginCompanias"
-        Me.gcLoginCompanias.Size = New System.Drawing.Size(389, 171)
+        Me.gcLoginCompanias.Size = New System.Drawing.Size(557, 458)
         Me.gcLoginCompanias.TabIndex = 2
         Me.gcLoginCompanias.ViewCollection.AddRange(New DevExpress.XtraGrid.Views.Base.BaseView() {Me.grdLoginCompanias})
         '
@@ -103,7 +105,7 @@ Partial Class frmLogin
         Me.btnIngresar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnIngresar.Appearance.Options.UseBackColor = True
         Me.btnIngresar.Image = CType(resources.GetObject("btnIngresar.Image"), System.Drawing.Image)
-        Me.btnIngresar.Location = New System.Drawing.Point(303, 85)
+        Me.btnIngresar.Location = New System.Drawing.Point(81, 67)
         Me.btnIngresar.LookAndFeel.SkinMaskColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnIngresar.LookAndFeel.SkinMaskColor2 = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer))
         Me.btnIngresar.LookAndFeel.UseDefaultLookAndFeel = False
@@ -115,7 +117,7 @@ Partial Class frmLogin
         'txtClave
         '
         Me.txtClave.EditValue = ""
-        Me.txtClave.Location = New System.Drawing.Point(227, 55)
+        Me.txtClave.Location = New System.Drawing.Point(5, 37)
         Me.txtClave.Name = "txtClave"
         Me.txtClave.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClave.Properties.Appearance.Options.UseFont = True
@@ -127,7 +129,7 @@ Partial Class frmLogin
         'txtUsuario
         '
         Me.txtUsuario.EditValue = ""
-        Me.txtUsuario.Location = New System.Drawing.Point(227, 23)
+        Me.txtUsuario.Location = New System.Drawing.Point(5, 5)
         Me.txtUsuario.Name = "txtUsuario"
         Me.txtUsuario.Properties.Appearance.Font = New System.Drawing.Font("Tahoma", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtUsuario.Properties.Appearance.Options.UseFont = True
@@ -135,24 +137,11 @@ Partial Class frmLogin
         Me.txtUsuario.Size = New System.Drawing.Size(184, 24)
         Me.txtUsuario.TabIndex = 0
         '
-        'PictureEdit1
-        '
-        Me.PictureEdit1.EditValue = Global.anyStyle.My.Resources.Resources.Llave
-        Me.PictureEdit1.Location = New System.Drawing.Point(-4, -4)
-        Me.PictureEdit1.Name = "PictureEdit1"
-        Me.PictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Transparent
-        Me.PictureEdit1.Properties.Appearance.Options.UseBackColor = True
-        Me.PictureEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder
-        Me.PictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.[Auto]
-        Me.PictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch
-        Me.PictureEdit1.Size = New System.Drawing.Size(196, 188)
-        Me.PictureEdit1.TabIndex = 3
-        '
         'frmLogin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(485, 398)
+        Me.ClientSize = New System.Drawing.Size(781, 492)
         Me.Controls.Add(Me.PanelControl1)
         Me.Name = "frmLogin"
         Me.Text = "Login"
@@ -162,7 +151,6 @@ Partial Class frmLogin
         CType(Me.grdLoginCompanias, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtClave.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.txtUsuario.Properties, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.PictureEdit1.Properties, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -171,7 +159,6 @@ Partial Class frmLogin
     Friend WithEvents txtUsuario As DevExpress.XtraEditors.TextEdit
     Friend WithEvents btnIngresar As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents txtClave As DevExpress.XtraEditors.TextEdit
-    Friend WithEvents PictureEdit1 As DevExpress.XtraEditors.PictureEdit
     Friend WithEvents gcLoginCompanias As DevExpress.XtraGrid.GridControl
     Friend WithEvents grdLoginCompanias As DevExpress.XtraGrid.Views.Grid.GridView
     Friend WithEvents comIDCompania As DevExpress.XtraGrid.Columns.GridColumn

@@ -9,7 +9,7 @@ Public Class frmClientes
     Dim iOperacion As Integer = 0
     Dim iRegistroActivo As Integer = 0
 
-    Private Sub frmProveedores_Load(sender As Object, e As EventArgs) Handles Me.Load
+    Private Sub frmClientes_Load(sender As Object, e As EventArgs) Handles Me.Load
         CargarCombos()
         CargarGrid()
         RecalcularAnchoVGrid()
@@ -28,18 +28,18 @@ Public Class frmClientes
     End Sub
 
     Private Sub CargarGrid()
-        gcProveedores.DataSource = Nothing
+        gcClientes.DataSource = Nothing
 
-        sSQL = "select * from dbo.Proveedores where IDCompania = " & frmMain.oDatosUsuario.Compania
+        sSQL = "select * from dbo.Clientes where IDCompania = " & frmMain.oDatosUsuario.Compania
         Dim dtProveedor As New DataTable
         dtProveedor = f.EjecutarQuery(sSQL)
 
         If dtProveedor.Rows.Count > 0 Then
-            RemoveHandler grdProveedores.FocusedRowChanged, AddressOf grdProveedores_FocusedRowChanged
-            gcProveedores.DataSource = dtProveedor
-            AddHandler grdProveedores.FocusedRowChanged, AddressOf grdProveedores_FocusedRowChanged
+            RemoveHandler grdClientes.FocusedRowChanged, AddressOf grdProveedores_FocusedRowChanged
+            gcClientes.DataSource = dtProveedor
+            AddHandler grdClientes.FocusedRowChanged, AddressOf grdProveedores_FocusedRowChanged
 
-            grdProveedores.FocusedRowHandle = iRegistroActivo
+            grdClientes.FocusedRowHandle = iRegistroActivo
 
             CargarDetalles()
         End If
@@ -50,8 +50,8 @@ Public Class frmClientes
             row.Properties.Value = Nothing
         Next
 
-        If Not IsNothing(grdProveedores.GetFocusedRow) Then
-            Dim dr As DataRowView = grdProveedores.GetFocusedRow
+        If Not IsNothing(grdClientes.GetFocusedRow) Then
+            Dim dr As DataRowView = grdClientes.GetFocusedRow
 
             vgrdDetalles.Rows("rowIDProveedor").Properties.Value = dr("IDProveedor")
             vgrdDetalles.Rows("rowCodigoProveedor").Properties.Value = dr("CodigoProveedor")
@@ -69,30 +69,30 @@ Public Class frmClientes
         btnInsertar.Visible = bEstado
 
         vgrdDetalles.OptionsBehavior.Editable = bEstado
-        grdProveedores.Columns(7).Visible = bEstado
+        grdClientes.Columns(7).Visible = bEstado
     End Sub
 
-    Private Sub grdProveedores_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdProveedores.FocusedRowChanged
-        If Not IsNothing(gcProveedores.DataSource) Then
-            iRegistroActivo = grdProveedores.FocusedRowHandle
+    Private Sub grdProveedores_FocusedRowChanged(sender As Object, e As DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs) Handles grdClientes.FocusedRowChanged
+        If Not IsNothing(gcClientes.DataSource) Then
+            iRegistroActivo = grdClientes.FocusedRowHandle
             CargarDetalles()
         End If
     End Sub
 
-    Private Sub grdProveedores_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles grdProveedores.RowCellClick
+    Private Sub grdProveedores_RowCellClick(sender As Object, e As RowCellClickEventArgs) Handles grdClientes.RowCellClick
         If e.Column.Name = "proEliminar" Then
 
             If MessageBox.Show("Está seguro de eliminar este proveedor?", "Eliminar Proveedor",
                                MessageBoxButtons.YesNo, MessageBoxIcon.Question) = DialogResult.Yes Then
                 sSQL = "Select count(*) from ProveedoresProductos where IDProveedor = " &
-                        grdProveedores.GetFocusedRowCellValue("IDProveedor") &
+                        grdClientes.GetFocusedRowCellValue("IDProveedor") &
                         " and IndActivo = 1"
                 Dim dt As New DataTable
                 dt = f.EjecutarQuery(sSQL)
 
                 If dt.Rows(0)(0) = 0 Then
-                    grdProveedores.DeleteRow(e.RowHandle)
-                    gcProveedores.DataSource.AcceptChanges()
+                    grdClientes.DeleteRow(e.RowHandle)
+                    gcClientes.DataSource.AcceptChanges()
                 Else
                     MessageBox.Show("No es posible eliminar el proveedor. Existen productos vinculados.", "Eliminar Proveedor")
                 End If
@@ -131,8 +131,8 @@ Public Class frmClientes
         Dim dt As DataTable
         Dim dr As DataRow
 
-        If Not IsNothing(gcProveedores.DataSource) Then
-            dt = gcProveedores.DataSource.Copy
+        If Not IsNothing(gcClientes.DataSource) Then
+            dt = gcClientes.DataSource.Copy
         Else
             dt = New DataTable
             dt.Columns.Add("IDProveedor", Type.GetType("System.Int32"))
@@ -155,27 +155,27 @@ Public Class frmClientes
         dr("IndActivo") = True
         dt.Rows.Add(dr)
 
-        gcProveedores.DataSource = dt
-        grdProveedores.FocusedRowHandle = dt.Rows.Count - 1
-        iRegistroActivo = grdProveedores.FocusedRowHandle
+        gcClientes.DataSource = dt
+        grdClientes.FocusedRowHandle = dt.Rows.Count - 1
+        iRegistroActivo = grdClientes.FocusedRowHandle
     End Sub
 
     Private Sub vgrdDetalles_CellValueChanged(sender As Object, e As DevExpress.XtraVerticalGrid.Events.CellValueChangedEventArgs) Handles vgrdDetalles.CellValueChanged
         Try
             Select Case e.Row.Name
                 Case "rowCodigoProveedor"
-                    grdProveedores.SetFocusedRowCellValue("CodigoProveedor", e.Row.Properties.Value)
+                    grdClientes.SetFocusedRowCellValue("CodigoProveedor", e.Row.Properties.Value)
                 Case "rowNombreProveedor"
-                    grdProveedores.SetFocusedRowCellValue("NombreProveedor", e.Row.Properties.Value)
+                    grdClientes.SetFocusedRowCellValue("NombreProveedor", e.Row.Properties.Value)
                 Case "rowTelefonoProveedor"
-                    grdProveedores.SetFocusedRowCellValue("TelefonoProveedor", e.Row.Properties.Value)
+                    grdClientes.SetFocusedRowCellValue("TelefonoProveedor", e.Row.Properties.Value)
                 Case "rowDireccionProveedor"
-                    grdProveedores.SetFocusedRowCellValue("DireccionProveedor", e.Row.Properties.Value)
+                    grdClientes.SetFocusedRowCellValue("DireccionProveedor", e.Row.Properties.Value)
                 Case "rowIndActivo"
-                    grdProveedores.SetFocusedRowCellValue("IndActivo", e.Row.Properties.Value)
+                    grdClientes.SetFocusedRowCellValue("IndActivo", e.Row.Properties.Value)
             End Select
 
-            gcProveedores.DataSource.AcceptChanges()
+            gcClientes.DataSource.AcceptChanges()
         Catch ex As Exception
             MessageBox.Show(ex.Message)
         End Try
@@ -184,7 +184,7 @@ Public Class frmClientes
     Private Function Validar() As Boolean
         Dim bValidacion As Boolean = True
 
-        For Each row As DataRow In gcProveedores.DataSource.Rows
+        For Each row As DataRow In gcClientes.DataSource.Rows
             If row("CodigoProveedor") = "" OrElse row("NombreProveedor") = "" Then
                 bValidacion = False
                 MessageBox.Show("Existen Campos por configurar")
@@ -199,9 +199,9 @@ Public Class frmClientes
         Dim clsPro As New clsProcedimientos
         Dim dtPro As New DataTable
 
-        gcProveedores.Focus()
+        gcClientes.Focus()
 
-        dtPro = clsPro.pProveedores(gcProveedores.DataSource)
+        dtPro = clsPro.pProveedores(gcClientes.DataSource)
         CargarGrid()
     End Sub
 
