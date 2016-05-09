@@ -22,7 +22,7 @@ Partial Class frmClientes
     'No lo modifique con el editor de código.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim SerializableAppearanceObject1 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
+        Dim SerializableAppearanceObject2 As DevExpress.Utils.SerializableAppearanceObject = New DevExpress.Utils.SerializableAppearanceObject()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmClientes))
         Me.pnlContenedor = New DevExpress.XtraEditors.PanelControl()
         Me.gcClientes = New DevExpress.XtraGrid.GridControl()
@@ -54,14 +54,14 @@ Partial Class frmClientes
         Me.repManejaCaja = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.repManejaProductos = New DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit()
         Me.repTelefonoCliente = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
-        Me.repDireccion = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
+        Me.repDireccionCliente = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.repEmailCliente = New DevExpress.XtraEditors.Repository.RepositoryItemTextEdit()
         Me.repFechaCliente = New DevExpress.XtraEditors.Repository.RepositoryItemDateEdit()
         Me.rowIDCliente = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowCodigoCliente = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowNombreCliente = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowTelefonoCliente = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
-        Me.rowDireccionProveedor = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
+        Me.rowDireccionCliente = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowEmailCliente = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowFechaCliente = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
         Me.rowIndActivo = New DevExpress.XtraVerticalGrid.Rows.EditorRow()
@@ -91,7 +91,7 @@ Partial Class frmClientes
         CType(Me.repManejaCaja, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repManejaProductos, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repTelefonoCliente, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.repDireccion, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.repDireccionCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repEmailCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repFechaCliente, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.repFechaCliente.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -212,9 +212,9 @@ Partial Class frmClientes
         'repEliminar
         '
         Me.repEliminar.AutoHeight = False
-        SerializableAppearanceObject1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
-        SerializableAppearanceObject1.Options.UseBackColor = True
-        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject1, "", Nothing, Nothing, True)})
+        SerializableAppearanceObject2.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(192, Byte), Integer))
+        SerializableAppearanceObject2.Options.UseBackColor = True
+        Me.repEliminar.Buttons.AddRange(New DevExpress.XtraEditors.Controls.EditorButton() {New DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "X", -1, True, True, False, DevExpress.XtraEditors.ImageLocation.MiddleCenter, Nothing, New DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), SerializableAppearanceObject2, "", Nothing, Nothing, True)})
         Me.repEliminar.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
         Me.repEliminar.Name = "repEliminar"
         Me.repEliminar.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor
@@ -251,9 +251,9 @@ Partial Class frmClientes
         Me.vgrdDetalles.OptionsBehavior.Editable = False
         Me.vgrdDetalles.OptionsView.AutoScaleBands = True
         Me.vgrdDetalles.RecordWidth = 261
-        Me.vgrdDetalles.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.repActivo, Me.cboGrupoUsuarioCol, Me.repCodigoUsuario, Me.repCodigoCliente, Me.repNombreCliente, Me.repEmailUsuario, Me.repTelefonoProveedor, Me.repVisualizar, Me.repConfigurarUsuarios, Me.repDireccionProveedor, Me.repManejaCaja, Me.repManejaProductos, Me.repTelefonoCliente, Me.repDireccion, Me.repEmailCliente, Me.repFechaCliente})
+        Me.vgrdDetalles.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.repActivo, Me.cboGrupoUsuarioCol, Me.repCodigoUsuario, Me.repCodigoCliente, Me.repNombreCliente, Me.repEmailUsuario, Me.repTelefonoProveedor, Me.repVisualizar, Me.repConfigurarUsuarios, Me.repDireccionProveedor, Me.repManejaCaja, Me.repManejaProductos, Me.repTelefonoCliente, Me.repDireccionCliente, Me.repEmailCliente, Me.repFechaCliente})
         Me.vgrdDetalles.RowHeaderWidth = 198
-        Me.vgrdDetalles.Rows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowIDCliente, Me.rowCodigoCliente, Me.rowNombreCliente, Me.rowTelefonoCliente, Me.rowDireccionProveedor, Me.rowEmailCliente, Me.rowFechaCliente, Me.rowIndActivo})
+        Me.vgrdDetalles.Rows.AddRange(New DevExpress.XtraVerticalGrid.Rows.BaseRow() {Me.rowIDCliente, Me.rowCodigoCliente, Me.rowNombreCliente, Me.rowTelefonoCliente, Me.rowDireccionCliente, Me.rowEmailCliente, Me.rowFechaCliente, Me.rowIndActivo})
         Me.vgrdDetalles.Size = New System.Drawing.Size(465, 478)
         Me.vgrdDetalles.TabIndex = 1
         '
@@ -378,10 +378,10 @@ Partial Class frmClientes
         Me.repTelefonoCliente.AutoHeight = False
         Me.repTelefonoCliente.Name = "repTelefonoCliente"
         '
-        'repDireccion
+        'repDireccionCliente
         '
-        Me.repDireccion.AutoHeight = False
-        Me.repDireccion.Name = "repDireccion"
+        Me.repDireccionCliente.AutoHeight = False
+        Me.repDireccionCliente.Name = "repDireccionCliente"
         '
         'repEmailCliente
         '
@@ -432,13 +432,13 @@ Partial Class frmClientes
         Me.rowTelefonoCliente.Properties.FieldName = "TelefonoCliente"
         Me.rowTelefonoCliente.Properties.RowEdit = Me.repTelefonoCliente
         '
-        'rowDireccionProveedor
+        'rowDireccionCliente
         '
-        Me.rowDireccionProveedor.Height = 20
-        Me.rowDireccionProveedor.Name = "rowDireccionProveedor"
-        Me.rowDireccionProveedor.Properties.Caption = "DIRECCIÓN"
-        Me.rowDireccionProveedor.Properties.FieldName = "DireccionProveedor"
-        Me.rowDireccionProveedor.Properties.RowEdit = Me.repDireccion
+        Me.rowDireccionCliente.Height = 20
+        Me.rowDireccionCliente.Name = "rowDireccionCliente"
+        Me.rowDireccionCliente.Properties.Caption = "DIRECCIÓN"
+        Me.rowDireccionCliente.Properties.FieldName = "DireccionCliente"
+        Me.rowDireccionCliente.Properties.RowEdit = Me.repDireccionCliente
         '
         'rowEmailCliente
         '
@@ -583,7 +583,7 @@ Partial Class frmClientes
         CType(Me.repManejaCaja, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repManejaProductos, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repTelefonoCliente, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.repDireccion, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.repDireccionCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repEmailCliente, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repFechaCliente.CalendarTimeProperties, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.repFechaCliente, System.ComponentModel.ISupportInitialize).EndInit()
@@ -621,7 +621,7 @@ Partial Class frmClientes
     Friend WithEvents cliDireccionCliente As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents cliIndActivo As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents rowTelefonoCliente As DevExpress.XtraVerticalGrid.Rows.EditorRow
-    Friend WithEvents rowDireccionProveedor As DevExpress.XtraVerticalGrid.Rows.EditorRow
+    Friend WithEvents rowDireccionCliente As DevExpress.XtraVerticalGrid.Rows.EditorRow
     Friend WithEvents repTelefonoProveedor As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repVisualizar As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
     Friend WithEvents repConfigurarUsuarios As DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit
@@ -631,7 +631,7 @@ Partial Class frmClientes
     Friend WithEvents cliCodigoCliente As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents proEliminar As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents repTelefonoCliente As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
-    Friend WithEvents repDireccion As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
+    Friend WithEvents repDireccionCliente As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit
     Friend WithEvents cliIDCompania As DevExpress.XtraGrid.Columns.GridColumn
     Friend WithEvents btnProveedorProductos As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents repEmailCliente As DevExpress.XtraEditors.Repository.RepositoryItemTextEdit

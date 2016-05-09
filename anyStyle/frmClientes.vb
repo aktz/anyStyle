@@ -35,9 +35,9 @@ Public Class frmClientes
         dtProveedor = f.EjecutarQuery(sSQL)
 
         If dtProveedor.Rows.Count > 0 Then
-            RemoveHandler grdClientes.FocusedRowChanged, AddressOf grdProveedores_FocusedRowChanged
+            RemoveHandler grdClientes.FocusedRowChanged, AddressOf grdClientes_FocusedRowChanged
             gcClientes.DataSource = dtProveedor
-            AddHandler grdClientes.FocusedRowChanged, AddressOf grdProveedores_FocusedRowChanged
+            AddHandler grdClientes.FocusedRowChanged, AddressOf grdClientes_FocusedRowChanged
 
             grdClientes.FocusedRowHandle = iRegistroActivo
 
@@ -58,7 +58,7 @@ Public Class frmClientes
             vgrdDetalles.Rows("rowNombreCliente").Properties.Value = dr("NombreCliente")
             vgrdDetalles.Rows("rowTelefonoCliente").Properties.Value = dr("TelefonoCliente")
             vgrdDetalles.Rows("rowDireccionCliente").Properties.Value = dr("DireccionCliente")
-            vgrdDetalles.Rows("rowEmailCliente").Properties.Value = dr("EmailClientee")
+            vgrdDetalles.Rows("rowEmailCliente").Properties.Value = dr("EmailCliente")
             vgrdDetalles.Rows("rowFechaCliente").Properties.Value = dr("FechaCliente")
             vgrdDetalles.Rows("rowIndActivo").Properties.Value = dr("IndActivo")
         End If
@@ -144,7 +144,7 @@ Public Class frmClientes
             dt.Columns.Add("TelefonoCliente", Type.GetType("System.String"))
             dt.Columns.Add("DireccionCliente", Type.GetType("System.String"))
             dt.Columns.Add("EmailCliente", Type.GetType("System.String"))
-            dt.Columns.Add("FechaCliente", Type.GetType("System.Date"))
+            dt.Columns.Add("FechaCliente", Type.GetType("System.DateTime"))
             dt.Columns.Add("IndActivo", Type.GetType("System.Boolean"))
         End If
 
