@@ -6,8 +6,8 @@ Imports System.Text
 
 Public Class clsFunciones
     'Dim sqlconn As String = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\anyDente\anyDente.accdb;Jet OLEDB:Database Password=1q2w3eazsxdc;"
-    Dim sqlconn As String = "Server=MMUJICA;Database=anyStyle;User Id=sa;Password=1q2w3eazsxdM.;"
-    'Dim sqlconn As String = "Server=DESARROLLO4;Database=ProContrato;Trusted_Connection=True;"
+    'Dim sqlconn As String = "Server=MMUJICA;Database=anyStyle;User Id=sa;Password=1q2w3eazsxdM.;"
+    Dim sqlconn As String = "Server=DESARROLLOMM\SQLSERVER2014;Database=anyStyle;User Id=sa;Password=123456;"
     'Dim conn As New OleDbConnection(sqlconn)
     Public conn As New SqlConnection(sqlconn)
     'Dim comm As OleDbCommand

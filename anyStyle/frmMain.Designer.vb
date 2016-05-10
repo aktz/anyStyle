@@ -53,6 +53,8 @@ Partial Class frmMain
         Me.RepositoryItemPictureEdit1 = New DevExpress.XtraEditors.Repository.RepositoryItemPictureEdit()
         Me.DocumentManager1 = New DevExpress.XtraBars.Docking2010.DocumentManager(Me.components)
         Me.TabbedView1 = New DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(Me.components)
+        Me.rpgServicios = New DevExpress.XtraBars.Ribbon.RibbonPageGroup()
+        Me.itmServicios = New DevExpress.XtraBars.BarButtonItem()
         CType(Me.ribMenu, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.RepositoryItemPictureEdit1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DocumentManager1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -63,9 +65,9 @@ Partial Class frmMain
         '
         Me.ribMenu.DrawGroupCaptions = DevExpress.Utils.DefaultBoolean.[False]
         Me.ribMenu.ExpandCollapseItem.Id = 0
-        Me.ribMenu.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribMenu.ExpandCollapseItem, Me.itmUsuarios, Me.itmProductos, Me.itmProveedores, Me.itmClientes, Me.itmGrupos, Me.itmAgenda, Me.itmReportes, Me.itmModificar, Me.itmGuardar, Me.itmCancelar, Me.itmCompanias, Me.itmCerrarSesion, Me.itmInfo})
+        Me.ribMenu.Items.AddRange(New DevExpress.XtraBars.BarItem() {Me.ribMenu.ExpandCollapseItem, Me.itmUsuarios, Me.itmProductos, Me.itmProveedores, Me.itmClientes, Me.itmGrupos, Me.itmAgenda, Me.itmReportes, Me.itmModificar, Me.itmGuardar, Me.itmCancelar, Me.itmCompanias, Me.itmCerrarSesion, Me.itmInfo, Me.itmServicios})
         Me.ribMenu.Location = New System.Drawing.Point(0, 0)
-        Me.ribMenu.MaxItemId = 23
+        Me.ribMenu.MaxItemId = 24
         Me.ribMenu.Name = "ribMenu"
         Me.ribMenu.Pages.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPage() {Me.rtabConfiguracion, Me.rtabProcesos, Me.rtabInformes})
         Me.ribMenu.RepositoryItems.AddRange(New DevExpress.XtraEditors.Repository.RepositoryItem() {Me.RepositoryItemPictureEdit1})
@@ -208,7 +210,7 @@ Partial Class frmMain
         '
         'rtabConfiguracion
         '
-        Me.rtabConfiguracion.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.rpgCerrarSesion, Me.rpgNoticias, Me.RibbonPageGroup3, Me.rpgCompanias, Me.rpgGrupos, Me.rpgUsuarios, Me.rpgProveedores, Me.rpgProductos, Me.rpgClientes})
+        Me.rtabConfiguracion.Groups.AddRange(New DevExpress.XtraBars.Ribbon.RibbonPageGroup() {Me.rpgCerrarSesion, Me.rpgNoticias, Me.RibbonPageGroup3, Me.rpgCompanias, Me.rpgGrupos, Me.rpgUsuarios, Me.rpgProveedores, Me.rpgProductos, Me.rpgServicios, Me.rpgClientes})
         Me.rtabConfiguracion.Name = "rtabConfiguracion"
         Me.rtabConfiguracion.Text = "ADMINISTRACIÓN"
         '
@@ -285,6 +287,19 @@ Partial Class frmMain
         Me.DocumentManager1.View = Me.TabbedView1
         Me.DocumentManager1.ViewCollection.AddRange(New DevExpress.XtraBars.Docking2010.Views.BaseView() {Me.TabbedView1})
         '
+        'rpgServicios
+        '
+        Me.rpgServicios.ItemLinks.Add(Me.itmServicios)
+        Me.rpgServicios.Name = "rpgServicios"
+        '
+        'itmServicios
+        '
+        Me.itmServicios.Caption = "SERVICIOS"
+        Me.itmServicios.Glyph = CType(resources.GetObject("itmServicios.Glyph"), System.Drawing.Image)
+        Me.itmServicios.Id = 23
+        Me.itmServicios.LargeGlyph = CType(resources.GetObject("itmServicios.LargeGlyph"), System.Drawing.Image)
+        Me.itmServicios.Name = "itmServicios"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -335,4 +350,6 @@ Partial Class frmMain
     Friend WithEvents RibbonPageGroup3 As DevExpress.XtraBars.Ribbon.RibbonPageGroup
     Friend WithEvents rtabProcesos As DevExpress.XtraBars.Ribbon.RibbonPage
     Friend WithEvents rtabInformes As DevExpress.XtraBars.Ribbon.RibbonPage
+    Friend WithEvents itmServicios As DevExpress.XtraBars.BarButtonItem
+    Friend WithEvents rpgServicios As DevExpress.XtraBars.Ribbon.RibbonPageGroup
 End Class

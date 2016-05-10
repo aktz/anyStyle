@@ -367,7 +367,7 @@ Partial Class frmCompanias
         'btnInsertar
         '
         Me.btnInsertar.AllowFocus = False
-        Me.btnInsertar.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnInsertar.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.btnInsertar.Appearance.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer), CType(CType(255, Byte), Integer))
         Me.btnInsertar.Appearance.Options.UseBackColor = True
         Me.btnInsertar.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.HotFlat
@@ -378,6 +378,7 @@ Partial Class frmCompanias
         Me.btnInsertar.Size = New System.Drawing.Size(69, 61)
         Me.btnInsertar.TabIndex = 0
         Me.btnInsertar.Text = "Insertar"
+        Me.btnInsertar.Visible = False
         '
         'btnCancelar
         '
