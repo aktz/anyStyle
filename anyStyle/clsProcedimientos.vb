@@ -160,4 +160,31 @@ Public Class clsProcedimientos
 
         Return dt
     End Function
+
+
+    Public Function pCategorias(ByVal dtCategorias As DataTable) As DataTable
+        Dim cmd As New SqlCommand
+        Dim par As New SqlParameter
+        Dim dr As SqlDataReader
+        Dim dt As New DataTable
+
+        cmd.Connection = f.conn
+        cmd.CommandType = CommandType.StoredProcedure
+        cmd.CommandText = "SP_Categorias"
+
+        par = Nothing
+        par = New SqlParameter
+        par.ParameterName = "@Categorias"
+        par.Value = dtCategorias
+        cmd.Parameters.Add(par)
+
+        If cmd.Connection.State <> ConnectionState.Open Then
+            cmd.Connection.Open()
+        End If
+
+        dr = cmd.ExecuteReader
+        dt.Load(dr)
+
+        Return dt
+    End Function
 End Class

@@ -72,4 +72,9 @@ Public Class frmMain
         frmClientes.mdiparent = Me
         frmClientes.show()
     End Sub
+
+    Private Sub itmCategorias_ItemClick(sender As Object, e As DevExpress.XtraBars.ItemClickEventArgs) Handles itmCategorias.ItemClick
+        frmCategorias.MdiParent = Me
+        frmCategorias.Show()
+    End Sub
 End Class
